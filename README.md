@@ -112,7 +112,9 @@ Before these projects, I worked on Python development and training data at Turin
 Latest public changes from three selected repositories. Commit dates describe the work; this is a daily snapshot, not a live status indicator.
 
 <!-- activity:start -->
-Public repository updates will appear after the first successful refresh.
+- **2026-07-30** · [zindi-cli](<https://github.com/JONNY-ME/zindi-cli>) — [\[test\] lock down the live API contract](<https://github.com/JONNY-ME/zindi-cli/commit/c0e3f11450bc52aa6454ea3a09f85acddce0b34b>)
+- **2026-05-19** · [multilingual-health-qa](<https://github.com/JONNY-ME/multilingual-health-qa>) — [Rouge LF 1 0\.2531 LLM Judge 0\.6826 Rouge 1 F 1 0\.3552](<https://github.com/JONNY-ME/multilingual-health-qa/commit/85f55f9daa7bd7f18e5c0d74bc8ffd42afa6c3ab>)
+- **2022-08-15** · [Microsoft-Rice-Disease-Classification-Challenge](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge>) — [lightning approach](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge/commit/31a04a3618a10e771f16dc718d6f2791cb709e22>)
 <!-- activity:end -->
 
 ## 05 / Start a conversation

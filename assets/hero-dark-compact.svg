@@ -24,7 +24,7 @@ text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", mo
 <circle cx="92" cy="48" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
 <circle cx="56" cy="-8" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
 </g>
-<path d="M76 132 H92 L105 119 M243 167 H271 V93 H324" fill="none" stroke="#D99A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
+<path d="M76 132 H89 V92 H105 M134 167 V188 H183 V167 M243 167 H271 V93 H324" fill="none" stroke="#D99A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
 <path d="M271 132 H324 M271 171 H324" fill="none" stroke="#D99A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
 <circle cx="324" cy="93" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
 <circle cx="324" cy="132" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>

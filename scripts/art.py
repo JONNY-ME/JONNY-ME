@@ -84,7 +84,7 @@ def hero(theme, compact=False):
         d.group("translate(167 128) scale(.82)")
         monogram(d)
         d.endgroup()
-        d.path("M76 132 H92 L105 119 M243 167 H271 V93 H324", "copper", 1.5, 'class="trace"')
+        d.path("M76 132 H89 V92 H105 M134 167 V188 H183 V167 M243 167 H271 V93 H324", "copper", 1.5, 'class="trace"')
         d.path("M271 132 H324 M271 171 H324", "copper", 1.5, 'class="trace"')
         for y in [93, 132, 171]:
             d.dot(324, y, 3, "teal")
@@ -95,12 +95,12 @@ def hero(theme, compact=False):
     else:
         d.text(816, 31, "ADDIS ABABA  /  ETHIOPIA", 11, anchor="end", spacing=1)
         d.text(32, 113, "INPUT", 11, spacing=1.8)
-        d.path("M32 151 H57 L64 132 L74 174 L85 140 L92 151 H132 L153 130 H186", "teal", 1.8)
+        d.path("M32 151 H57 L64 132 L74 174 L85 140 L92 151 H132 L153 130 H206", "teal", 1.8)
         d.group("translate(282 174)")
         monogram(d)
         d.endgroup()
-        d.path("M374 222 H430 V94 H528 M430 158 H528 M430 222 H528", "line", 2)
-        d.path("M374 222 H430 V94 H528 M430 158 H528 M430 222 H528", "copper", 1.5, 'class="trace"')
+        d.path("M242 222 V238 H302 V222 M374 222 H430 V94 H528 M430 158 H528 M430 222 H528", "line", 2)
+        d.path("M242 222 V238 H302 V222 M374 222 H430 V94 H528 M430 158 H528 M430 222 H528", "copper", 1.5, 'class="trace"')
         for y in [94, 158, 222]:
             d.dot(430, y, 3, "copper", False)
             d.path(f"M588 {y} H633", "line")

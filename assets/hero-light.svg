@@ -14,7 +14,7 @@ text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", mo
 <text x="24" y="31" fill="#8D4C27" font-size="12" text-anchor="start" letter-spacing="1.7">THE SIGNAL FOUNDRY</text>
 <text x="816" y="31" fill="#54656B" font-size="11" text-anchor="end" letter-spacing="1">ADDIS ABABA  /  ETHIOPIA</text>
 <text x="32" y="113" fill="#54656B" font-size="11" text-anchor="start" letter-spacing="1.8">INPUT</text>
-<path d="M32 151 H57 L64 132 L74 174 L85 140 L92 151 H132 L153 130 H186" fill="none" stroke="#236B66" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M32 151 H57 L64 132 L74 174 L85 140 L92 151 H132 L153 130 H206" fill="none" stroke="#236B66" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(282 174)">
 <path d="M-76 -44 L-40 -8 L-4 -44 M-40 -8 V48 M20 48 V-44 L56 -8 L92 -44 V48" fill="none" stroke="#B9BEB7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M-76 -44 L-40 -8 L-4 -44 M-40 -8 V48 M20 48 V-44 L56 -8 L92 -44 V48" fill="none" stroke="#8D4C27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
@@ -25,8 +25,8 @@ text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", mo
 <circle cx="92" cy="48" r="4" fill="#F4EFE6" stroke="#8D4C27" stroke-width="1.3"/>
 <circle cx="56" cy="-8" r="3" fill="#236B66" stroke="#236B66" stroke-width="1.3"/>
 </g>
-<path d="M374 222 H430 V94 H528 M430 158 H528 M430 222 H528" fill="none" stroke="#B9BEB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M374 222 H430 V94 H528 M430 158 H528 M430 222 H528" fill="none" stroke="#8D4C27" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
+<path d="M242 222 V238 H302 V222 M374 222 H430 V94 H528 M430 158 H528 M430 222 H528" fill="none" stroke="#B9BEB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M242 222 V238 H302 V222 M374 222 H430 V94 H528 M430 158 H528 M430 222 H528" fill="none" stroke="#8D4C27" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
 <circle cx="430" cy="94" r="3" fill="#F4EFE6" stroke="#8D4C27" stroke-width="1.3"/>
 <path d="M588 94 H633" fill="none" stroke="#B9BEB7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
 <circle cx="633" cy="94" r="2.6" fill="#236B66" stroke="#236B66" stroke-width="1.3"/>
