@@ -66,7 +66,7 @@ def activity_markdown(snapshot, repositories):
             raise ValueError("Invalid commit date")
         repo = item["repository"]
         url = f"https://github.com/{repo}/commit/{item['sha']}"
-        rows.append(f"- **{date}** · {link(md_text(repo.split('/')[1]), 'https://github.com/' + repo)} — {link(md_text(item['title']), url)}")
+        rows.append(f"- **{date}** · {link(md_text(repo.split('/')[1]), 'https://github.com/' + repo)} · {link(md_text(item['title']), url)}")
     return "\n".join(rows)
 
 
@@ -83,13 +83,14 @@ def outputs(root=ROOT):
     values = dict(profile)
     values.update(
         navigation=f"{link('Portfolio ↗', links['portfolio'])} · [Selected work ↓](#01--selected-systems) · {link('Contact ↗', links['email'])}",
-        hero=picture("hero", "The Signal Foundry: a YM circuit branches into learning, software, and hardware. A conceptual illustration of my engineering practice."),
+        hero=picture("hero", "YM-01 Bench capture: a UART signal decodes byte by byte into YOHANNES, above learning, software, and hardware channels. A conceptual illustration of my engineering practice."),
         projects="\n\n".join(projects),
         research="\n\n".join(f"**{link(r['title'], r['url'])}**  \n{r['description']}" for r in profile["research"]),
         foundations="\n\n".join(profile["foundations"]),
         index_links=" · ".join([link("All projects", links['portfolio'] + '/projects'), link("Research", links['portfolio'] + '/research'), link("About & experience", links['portfolio'] + '/about'), link("Competition portfolio", links['zindi'])]),
         activity=activity_markdown(snapshot, profile["activity_repositories"]),
         contact=" · ".join(link(label, links[key]) for label, key in [("Email me ↗", "email"), ("Portfolio", "portfolio"), ("LinkedIn", "linkedin"), ("Toptal", "toptal")]),
+        **{f"marker_{n}": picture(f"marker-{n}", "") for n in range(1, 6)},
     )
     readme = Template((root / "templates/README.md.tmpl").read_text()).substitute(values)
     generated = {root / "README.md": readme}

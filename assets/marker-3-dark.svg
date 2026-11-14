@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="40" viewBox="0 0 840 40" role="img" aria-labelledby="title desc">
+<title id="title">Section marker M3</title><desc id="desc">Decorative divider: a marker flag and a short signal trace.</desc>
+<style>
+text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
+</style>
+<path d="M10 3V37" fill="none" stroke="#E3B866" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M10 12.0H40L46 20.0L40 28.0H10Z" fill="#E3B866" stroke="#E3B866" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="15" y="23.5" fill="#141915" font-size="10" letter-spacing="0.8" font-weight="700">M3</text>
+<path d="M58 20L62.5 13H143.5L148 20L143.5 27H62.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M148 20L152.5 13H283.5L288 20L283.5 27H152.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M288 20L292.5 13H353.5L358 20L353.5 27H292.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M358 20L362.5 13H473.5L478 20L473.5 27H362.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M478 20L482.5 13H573.5L578 20L573.5 27H482.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M578 20L582.5 13H733.5L738 20L733.5 27H582.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M738 20L742.5 13H813.5L818 20L813.5 27H742.5Z" fill="#E3B866" stroke="#E3B866" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+</svg>

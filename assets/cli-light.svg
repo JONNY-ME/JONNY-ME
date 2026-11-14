@@ -1,27 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="190" viewBox="0 0 840 190" role="img" aria-labelledby="title desc">
-<title id="title">DISCOVER / SUBMIT / INSPECT</title><desc id="desc">Simplified project schematic; explanatory illustration, not a measurement or live system.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="220" viewBox="0 0 840 220" role="img" aria-labelledby="title desc">
+<title id="title">Capture 004: a zindi-cli session</title><desc id="desc">Illustrative console capture. Each zindi-cli command returns one JSON document; an expired login returns a typed error on stderr and exits with code 3.</desc>
 <style>
 text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
-.pulse {display:none;}
 </style>
-<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#DEDCD3"/></pattern></defs>
-<rect width="840" height="190" rx="4" fill="#F4EFE6"/>
-<rect width="840" height="190" fill="url(#grid)"/>
-<text x="28" y="27" fill="#8D4C27" font-size="11" text-anchor="start" letter-spacing="1">DISCOVER / SUBMIT / INSPECT</text>
-<text x="820" y="176" fill="#54656B" font-size="9" text-anchor="end" letter-spacing="1">SCHEMATIC</text>
-<rect x="97" y="65" width="58" height="56" rx="2" fill="#EAE5DB" stroke="#B9BEB7"/>
-<path d="M97 78 H155" fill="none" stroke="#B9BEB7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<circle cx="106" cy="72" r="1.5" fill="#8D4C27" stroke="#8D4C27" stroke-width="1.3"/>
-<path d="M109 90 l8 7 l-8 7 M124 105 h17" fill="none" stroke="#236B66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M155 94 H385 M441 94 H678" fill="none" stroke="#8D4C27" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="389" y="73" width="48" height="11" rx="2" fill="#EAE5DB" stroke="#8D4C27"/>
-<rect x="389" y="88" width="48" height="11" rx="2" fill="#EAE5DB" stroke="#8D4C27"/>
-<rect x="389" y="103" width="48" height="11" rx="2" fill="#EAE5DB" stroke="#8D4C27"/>
-<path d="M680 69 V119 H731" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="690" y="97" width="7" height="19" rx="0" fill="#236B66" stroke="#236B66"/>
-<rect x="704" y="81" width="7" height="35" rx="0" fill="#236B66" stroke="#236B66"/>
-<rect x="718" y="88" width="7" height="28" rx="0" fill="#236B66" stroke="#236B66"/>
-<text x="126" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">CLI</text>
-<text x="413" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">DATA</text>
-<text x="704" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">RESULTS</text>
+<rect x="0.5" y="0.5" width="839" height="219" rx="10" fill="#ECE8DE" stroke="#CFC8B8" stroke-width="1"/>
+<text x="26" y="20" fill="#242823" font-size="11" letter-spacing="1.4" font-weight="700">YM-01</text>
+<text x="76" y="20" fill="#5C6057" font-size="9.5" letter-spacing="1.2">CAPTURE 004 · CONSOLE</text>
+<text x="814" y="20" fill="#5C6057" font-size="9" text-anchor="end" letter-spacing="1.2">ILLUSTRATIVE SESSION</text>
+<rect x="12" y="30" width="816" height="156" rx="4" fill="#FCFAF5" stroke="#CFC8B8" stroke-width="1"/>
+<text x="28" y="47" fill="#31653F" font-size="10" font-weight="700">$</text>
+<text x="40" y="47" fill="#242823" font-size="10">zindi use my-challenge</text>
+<text x="40" y="61.5" fill="#5C6057" font-size="10">{&quot;ok&quot;: true, …}</text>
+<circle cx="676" cy="58" r="2.2" fill="#855F12"/>
+<text x="686" y="61.5" fill="#5C6057" font-size="9.5">0</text>
+<text x="744" y="61.5" fill="#5C6057" font-size="9.5">stdout</text>
+<text x="28" y="76" fill="#31653F" font-size="10" font-weight="700">$</text>
+<text x="40" y="76" fill="#242823" font-size="10">zindi data download --output data/</text>
+<text x="40" y="90.5" fill="#5C6057" font-size="10">{&quot;ok&quot;: true, …}</text>
+<circle cx="676" cy="87" r="2.2" fill="#855F12"/>
+<text x="686" y="90.5" fill="#5C6057" font-size="9.5">0</text>
+<text x="744" y="90.5" fill="#5C6057" font-size="9.5">stdout</text>
+<text x="28" y="105" fill="#31653F" font-size="10" font-weight="700">$</text>
+<text x="40" y="105" fill="#242823" font-size="10">zindi submissions submit sub.csv --comment &quot;baseline&quot;</text>
+<text x="40" y="119.5" fill="#5C6057" font-size="10">{&quot;ok&quot;: true, &quot;command&quot;: &quot;submissions.submit&quot;, &quot;data&quot;: {&quot;status&quot;: &quot;initial&quot;, …}}</text>
+<circle cx="676" cy="116" r="2.2" fill="#855F12"/>
+<text x="686" y="119.5" fill="#5C6057" font-size="9.5">0</text>
+<text x="744" y="119.5" fill="#5C6057" font-size="9.5">stdout</text>
+<text x="28" y="134" fill="#31653F" font-size="10" font-weight="700">$</text>
+<text x="40" y="134" fill="#242823" font-size="10">zindi leaderboard --mine</text>
+<text x="40" y="148.5" fill="#9F452C" font-size="10">{&quot;ok&quot;: false, &quot;error&quot;: {&quot;code&quot;: &quot;AUTH_EXPIRED&quot;, &quot;message&quot;: &quot;Run: zindi auth login&quot;, …}}</text>
+<circle cx="706" cy="145" r="2.2" fill="#855F12"/>
+<text x="716" y="148.5" fill="#9F452C" font-size="9.5" font-weight="700">3</text>
+<text x="744" y="148.5" fill="#9F452C" font-size="9.5">stderr</text>
+<text x="28" y="163" fill="#31653F" font-size="10" font-weight="700">$</text>
+<text x="40" y="163" fill="#242823" font-size="10">zindi auth login _</text>
+<path d="M650 34V182" fill="none" stroke="#D3CBBB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="666" y="47" fill="#855F12" font-size="9.5" letter-spacing="1" font-weight="700">EXIT</text>
+<text x="744" y="47" fill="#5C6057" font-size="9" letter-spacing="1">STREAM</text>
+<path d="M676 54V139.5H706V163" fill="none" stroke="#855F12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="miter"/>
+<text x="26" y="207" fill="#9F452C" font-size="9.5" letter-spacing="1.2" font-weight="700">EXIT 3</text>
+<text x="76.6" y="207" fill="#242823" font-size="10">= AUTH_REQUIRED | AUTH_EXPIRED</text>
+<text x="814" y="207" fill="#5C6057" font-size="9.5" text-anchor="end" letter-spacing="1">one JSON document per command</text>
 </svg>
