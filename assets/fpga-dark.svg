@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="190" viewBox="0 0 840 190" role="img" aria-labelledby="title desc">
+<title id="title">PARALLEL / VOTE / INFER</title><desc id="desc">Simplified project schematic; explanatory illustration, not a measurement or live system.</desc>
+<style>
+text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
+.trace {stroke-dasharray: 1400; stroke-dashoffset: 0; animation: draw 4.5s ease-out 1;}
+.pulse {opacity: 0; animation: pulse 4.8s ease-in-out 1;}
+@keyframes draw {from {stroke-dashoffset:1400;} to {stroke-dashoffset:0;}}
+@keyframes pulse {0%,100% {opacity:0;} 30%,65% {opacity:.8;}}
+@media (prefers-reduced-motion: reduce) {.trace,.pulse {animation:none;} .pulse {display:none;}}
+</style>
+<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#21303A"/></pattern></defs>
+<rect width="840" height="190" rx="4" fill="#101820"/>
+<rect width="840" height="190" fill="url(#grid)"/>
+<text x="28" y="27" fill="#D99A63" font-size="11" text-anchor="start" letter-spacing="1">PARALLEL / VOTE / INFER</text>
+<text x="820" y="176" fill="#A9B6BA" font-size="9" text-anchor="end" letter-spacing="1">SCHEMATIC</text>
+<rect x="156" y="52" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
+<path d="M138 94 V62 H156 M204 62 H425 V94 H446" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M168 62 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="156" y="84" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
+<path d="M138 94 V94 H156 M204 94 H425 V94 H446" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M168 94 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="156" y="116" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
+<path d="M138 94 V126 H156 M204 126 H425 V94 H446" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M168 126 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M465 75 L484 94 L465 113 L446 94 Z" fill="none" stroke="#75C4BC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M484 94 H685" fill="none" stroke="#D99A63" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="693" y="77" width="34" height="34" rx="2" fill="#15212A" stroke="#35454E"/>
+<rect x="702" y="86" width="16" height="16" rx="2" fill="#15212A" stroke="#D99A63"/>
+<path d="M700 70 V77 M700 111 V118 M686 84 H693 M727 84 H734" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M710 70 V77 M710 111 V118 M686 94 H693 M727 94 H734" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M720 70 V77 M720 111 V118 M686 104 H693 M727 104 H734" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="180" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">MODELS</text>
+<text x="465" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">VOTE</text>
+<text x="710" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">INFER</text>
+</svg>
