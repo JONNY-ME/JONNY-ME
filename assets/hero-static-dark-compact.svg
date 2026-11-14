@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="300" viewBox="0 0 360 300" role="img" aria-labelledby="title desc">
+<title id="title">The Signal Foundry — Yohannes Melese</title><desc id="desc">An input signal traces a YM monogram, then branches into learning, software, and hardware. A conceptual illustration of interdisciplinary engineering.</desc>
+<style>
+text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
+.pulse {display:none;}
+</style>
+<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#21303A"/></pattern></defs>
+<rect width="360" height="300" rx="4" fill="#101820"/>
+<rect width="360" height="300" fill="url(#grid)"/>
+<text x="24" y="31" fill="#D99A63" font-size="12" text-anchor="start" letter-spacing="1.7">THE SIGNAL FOUNDRY</text>
+<text x="336" y="31" fill="#A9B6BA" font-size="10" text-anchor="end" letter-spacing="0">YM / 01</text>
+<path d="M24 132 H40 L45 119 L51 145 L57 132 H76" fill="none" stroke="#75C4BC" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+<g transform="translate(167 128) scale(.82)">
+<path d="M-76 -44 L-40 -8 L-4 -44 M-40 -8 V48 M20 48 V-44 L56 -8 L92 -44 V48" fill="none" stroke="#35454E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M-76 -44 L-40 -8 L-4 -44 M-40 -8 V48 M20 48 V-44 L56 -8 L92 -44 V48" fill="none" stroke="#D99A63" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
+<circle cx="-76" cy="-44" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
+<circle cx="-4" cy="-44" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
+<circle cx="-40" cy="48" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
+<circle cx="20" cy="48" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
+<circle cx="92" cy="48" r="4" fill="#101820" stroke="#D99A63" stroke-width="1.3"/>
+<circle cx="56" cy="-8" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
+</g>
+<path d="M76 132 H89 V92 H105 M134 167 V188 H183 V167 M243 167 H271 V93 H324" fill="none" stroke="#D99A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
+<path d="M271 132 H324 M271 171 H324" fill="none" stroke="#D99A63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="trace"/>
+<circle cx="324" cy="93" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
+<circle cx="324" cy="132" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
+<circle cx="324" cy="171" r="3" fill="#75C4BC" stroke="#75C4BC" stroke-width="1.3"/>
+<path d="M24 221 H336" fill="none" stroke="#35454E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+<text x="24" y="251" fill="#F4EFE6" font-size="18" text-anchor="start" letter-spacing="1">LEARN</text>
+<text x="137" y="251" fill="#F4EFE6" font-size="18" text-anchor="start" letter-spacing="1">BUILD</text>
+<text x="262" y="251" fill="#F4EFE6" font-size="18" text-anchor="start" letter-spacing="1">RUN</text>
+<text x="24" y="279" fill="#A9B6BA" font-size="11" text-anchor="start" letter-spacing="0">AI / SOFTWARE / ELECTRONICS</text>
+</svg>

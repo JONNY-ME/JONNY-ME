@@ -1,0 +1,74 @@
+{
+  "name": "Yohannes Melese",
+  "role": "AI/ML Engineer · Software · Electronics",
+  "location": "Addis Ababa, Ethiopia",
+  "headline": "I build intelligence into working systems.",
+  "introduction": "I'm an AI/ML engineer with a foundation in electronics, computer science, and competitive programming. My work connects research with the less glamorous details that make a system useful: evaluation, validation, reproducibility, and delivery.",
+  "perspective": "I like problems where the model is only part of the answer. A document pipeline needs an audit trail. A language model needs an honest evaluation. A hardware implementation needs to respect the device it runs on.",
+  "links": {
+    "portfolio": "https://yohannesmelese.com",
+    "email": "mailto:yohannesmelese4@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/yohannes-melese/",
+    "toptal": "https://www.toptal.com/developers/resume/yohannes-melese",
+    "zindi": "https://zindi.africa/users/J0NNY/competitions/portfolio"
+  },
+  "projects": [
+    {
+      "id": "documents",
+      "title": "Documents → decisions you can inspect",
+      "name": "Tax Document Extraction Pipeline",
+      "description": "Tax returns arrive as inconsistent PDFs, scans, and supporting statements. I built a pipeline that combines OCR and deterministic extraction with an LLM fallback, then checks arithmetic identities before writing a workbook. Confidence-based review and a JSON audit trail keep the output inspectable.",
+      "stack": "Python · OCR · Pydantic · PySide6",
+      "url": "https://yohannesmelese.com/projects/tax-document-ocr",
+      "alt": "Document extraction schematic: source pages pass through extraction and validation into an auditable workbook."
+    },
+    {
+      "id": "fpga",
+      "title": "Parallel models. A hardware constraint.",
+      "name": "FPGA-Based Ensemble Neural Networks",
+      "description": "My master's research explored an ensemble of lightweight neural networks on FPGA hardware. I combined parallel execution, quantization, and a voting stage to investigate real-time inference. It brought model design and hardware implementation into the same engineering problem.",
+      "stack": "Verilog · FPGA · TensorFlow · Python",
+      "url": "https://yohannesmelese.com/projects/fpga-ensemble-networks",
+      "alt": "FPGA ensemble schematic: three parallel model lanes converge at a voting stage and produce one prediction."
+    },
+    {
+      "id": "cli",
+      "title": "A competition workflow, made scriptable",
+      "name": "Zindi CLI",
+      "description": "Moving between a competition page, datasets, submissions, and results interrupts an otherwise reproducible workflow. I built a Python CLI that connects those steps, with structured JSON output and typed failures for scripts and agents. The implementation is public, so you can inspect the engineering directly.",
+      "stack": "Python · Typer · Requests · pytest",
+      "url": "https://yohannesmelese.com/projects/zindi-cli",
+      "repository": "https://github.com/JONNY-ME/zindi-cli",
+      "alt": "Zindi CLI workflow schematic: discover a competition, download its data, submit predictions, and inspect results."
+    }
+  ],
+  "research": [
+    {
+      "title": "African-language speech recognition",
+      "description": "Combining recognizers for Lingala, Shona, and Luganda, with speaker-aware evaluation and language routing that cannot rely on hidden labels.",
+      "url": "https://yohannesmelese.com/projects/african-language-asr"
+    },
+    {
+      "title": "Multilingual health QA",
+      "description": "Comparing baselines and LoRA adaptation for health questions in low-resource African languages, with language-specific evaluation.",
+      "url": "https://github.com/JONNY-ME/multilingual-health-qa"
+    },
+    {
+      "title": "Historical handwriting recognition",
+      "description": "Adapting visual readers for seventeenth-century archives, preserving transcript provenance, replayable experiments, and negative findings.",
+      "url": "https://yohannesmelese.com/projects/historical-handwriting-recognition"
+    }
+  ],
+  "foundations": [
+    "**Toptal Verified Expert in Engineering.** AI/ML engineering and development for clients; previously led robotics and autonomous-systems R&D at Ethronics.",
+    "**M.Sc. Electronics Engineering, ASTU.** 4.00/4.00, University Topper. Dual-major B.Sc. in Electronics & Communication Engineering and Computer Science & Engineering; 3.98/4.00, Gold Medalist.",
+    "**Competitive programming → engineering discipline.** First place, Zindi UmojaHack Ethiopia (2021); EtCPC silver (2022) and bronze (2020)."
+  ],
+  "background": "Before these projects, I worked on Python development and training data at Turing, supported electronics research and laboratories at ASTU, and led data-science tutorials and programming contests at CSEC-ASTU. Teaching and team leadership remain part of how I work.",
+  "invitation": "Working on an AI system, document automation, or hardware-aware ML? I'd be glad to hear about the problem, its constraints, and what a useful outcome would look like.",
+  "activity_repositories": [
+    "JONNY-ME/zindi-cli",
+    "JONNY-ME/multilingual-health-qa",
+    "JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge"
+  ]
+}
