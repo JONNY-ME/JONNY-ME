@@ -1,35 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="180" viewBox="0 0 360 180" role="img" aria-labelledby="title desc">
-<title id="title">READ / EXTRACT / VALIDATE</title><desc id="desc">Simplified project schematic; explanatory illustration, not a measurement or live system.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="280" viewBox="0 0 360 280" role="img" aria-labelledby="title desc">
+<title id="title">Capture 002: probing a tax document</title><desc id="desc">Illustrative probe capture. Fields on a tax page feed rules, LLM fallback, arithmetic check, and confidence channels; a low-confidence field drops below the threshold and is flagged for review.</desc>
 <style>
 text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
-.pulse {display:none;}
 </style>
-<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#DEDCD3"/></pattern></defs>
-<rect width="360" height="180" rx="4" fill="#F4EFE6"/>
-<rect width="360" height="180" fill="url(#grid)"/>
-<text x="20" y="27" fill="#8D4C27" font-size="11" text-anchor="start" letter-spacing="1">READ / EXTRACT / VALIDATE</text>
-<text x="340" y="166" fill="#54656B" font-size="9" text-anchor="end" letter-spacing="1">SCHEMATIC</text>
-<rect x="17" y="55" width="38" height="51" rx="2" fill="#EAE5DB" stroke="#B9BEB7"/>
-<rect x="25" y="63" width="38" height="51" rx="2" fill="#EAE5DB" stroke="#B9BEB7"/>
-<rect x="33" y="71" width="38" height="51" rx="2" fill="#EAE5DB" stroke="#B9BEB7"/>
-<path d="M41 85 H62" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M41 93 H62" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M41 101 H62" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M83 94 H141 M205 94 H265" fill="none" stroke="#8D4C27" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="146" y="65" width="54" height="58" rx="2" fill="#EAE5DB" stroke="#8D4C27"/>
-<path d="M156 78 H169" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M178 78 l4 4 l7 -8" fill="none" stroke="#236B66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M156 94 H169" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M178 94 l4 4 l7 -8" fill="none" stroke="#236B66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M156 110 H169" fill="none" stroke="#54656B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M178 110 l4 4 l7 -8" fill="none" stroke="#236B66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="271" y="64" width="58" height="59" rx="2" fill="#EAE5DB" stroke="#B9BEB7"/>
-<path d="M271 78 H329" fill="none" stroke="#B9BEB7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M271 93 H329" fill="none" stroke="#B9BEB7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M271 108 H329" fill="none" stroke="#B9BEB7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M290 64 V123 M310 64 V123" fill="none" stroke="#B9BEB7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="311" y="94" width="17" height="13" rx="0" fill="#236B66" stroke="#236B66"/>
-<text x="45" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">PAGES</text>
-<text x="173" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">CHECKS</text>
-<text x="300" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">WORKBOOK</text>
+<rect x="0.5" y="0.5" width="359" height="279" rx="10" fill="#ECE8DE" stroke="#CFC8B8" stroke-width="1"/>
+<text x="18" y="19" fill="#242823" font-size="11" letter-spacing="1.4" font-weight="700">YM-01</text>
+<text x="68" y="19" fill="#5C6057" font-size="9.5" letter-spacing="1.2">002 · PROBE</text>
+<text x="342" y="19" fill="#5C6057" font-size="9" text-anchor="end" letter-spacing="1.2">ILLUSTRATIVE</text>
+<rect x="8" y="28" width="344" height="214" rx="4" fill="#FCFAF5" stroke="#CFC8B8" stroke-width="1"/>
+<path d="M22 38H62L70 46V108Q70 110 68 110H22Q20 110 20 108V40Q20 38 22 38Z" fill="#ECE8DE" stroke="#5C6057" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M62 38V46H70" fill="none" stroke="#5C6057" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26 48H58" fill="none" stroke="#242823" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".7"/>
+<text x="25" y="61" fill="#31653F" font-size="8.5" text-anchor="middle" font-weight="700">A</text>
+<rect x="36" y="53.5" width="28" height="9" rx="1.5" fill="#31653F" stroke="#31653F" stroke-width="1" fill-opacity=".12"/>
+<path d="M40 58H55" fill="none" stroke="#242823" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".75"/>
+<circle cx="66" cy="58" r="2" fill="#31653F"/>
+<path d="M66 58C78 58 78 64 90 64" fill="none" stroke="#31653F" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="25" y="75" fill="#31653F" font-size="8.5" text-anchor="middle" font-weight="700">B</text>
+<rect x="36" y="67.5" width="28" height="9" rx="1.5" fill="#31653F" stroke="#31653F" stroke-width="1" fill-opacity=".12"/>
+<path d="M40 72H55" fill="none" stroke="#242823" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".75"/>
+<circle cx="66" cy="72" r="2" fill="#31653F"/>
+<path d="M66 72C78 72 78 76 90 76" fill="none" stroke="#31653F" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="25" y="89" fill="#9F452C" font-size="8.5" text-anchor="middle" font-weight="700">?</text>
+<rect x="36" y="81.5" width="28" height="9" rx="1.5" fill="#9F452C" stroke="#9F452C" stroke-width="1" fill-opacity=".12"/>
+<path d="M39 86q2.0 -3.5 4 0 t4 0 t4 0 t4 0 t4 0" fill="none" stroke="#9F452C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="66" cy="86" r="2" fill="#9F452C"/>
+<path d="M66 86C78 86 78 88 90 88" fill="none" stroke="#9F452C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="25" y="105" fill="#2F5F78" font-size="8.5" text-anchor="middle" font-weight="700">Σ</text>
+<path d="M36 94H64" fill="none" stroke="#5C6057" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="36" y="97.5" width="28" height="9" rx="1.5" fill="#2F5F78" stroke="#2F5F78" stroke-width="1" fill-opacity=".12"/>
+<path d="M40 102H55" fill="none" stroke="#242823" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".75"/>
+<circle cx="66" cy="102" r="2" fill="#2F5F78"/>
+<path d="M66 102C78 102 78 100 90 100" fill="none" stroke="#2F5F78" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="90" y="56" width="12" height="48" rx="3" fill="#ECE8DE" stroke="#5C6057" stroke-width="1"/>
+<text x="96" y="50" fill="#5C6057" font-size="7.5" text-anchor="middle" letter-spacing="1">PROBE</text>
+<text x="116" y="64" fill="#242823" font-size="10" letter-spacing="0.8" font-weight="700">PROBE · 4 FIELDS</text>
+<text x="116" y="81" fill="#5C6057" font-size="9">deterministic rules first,</text>
+<text x="116" y="94" fill="#5C6057" font-size="9">LLM only on misses,</text>
+<text x="116" y="107" fill="#5C6057" font-size="9">every value checked.</text>
+<rect x="80" y="140" width="51.5" height="12" rx="0" fill="#31653F" fill-opacity=".12"/>
+<rect x="147.5" y="140" width="51.5" height="12" rx="0" fill="#31653F" fill-opacity=".12"/>
+<rect x="282.5" y="140" width="51.5" height="12" rx="0" fill="#31653F" fill-opacity=".12"/>
+<path d="M72 152H80V140H131.5V152H147.5V140H199V152H282.5V140H334V152H342" fill="none" stroke="#31653F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+<rect x="215" y="162" width="51.5" height="12" rx="0" fill="#855F12" fill-opacity=".12"/>
+<path d="M72 174H215V162H266.5V174H342" fill="none" stroke="#855F12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+<rect x="282.5" y="184" width="59.5" height="12" rx="0" fill="#2F5F78" fill-opacity=".12"/>
+<path d="M72 196H282.5V184H342" fill="none" stroke="#2F5F78" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+<path d="M72 216.8H342" fill="none" stroke="#9F452C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" stroke-opacity=".55"/>
+<path d="M72 209.51L74 209.55 76 209.63 78 209.73 80 209.84 82 209.93 84 209.99 86 210.02 88 210.01 90 209.96 92 209.87 94 209.77 96 209.67 98 209.58 100 209.52 102 209.5 104 209.51 106 209.57 108 209.66 110 209.78 112 209.89 114 210 116 210.08 118 210.13 120 210.14 122 210.12 124 210.07 126 210.01 128 209.96 130 209.94 132 209.94 134 209.99 136 210.08 138 210.21 140 210.36 142 210.53 144 210.69 146 210.83 148 210.93 150 210.99 152 211.01 154 210.98 156 210.94 158 210.87 160 210.81 162 210.77 164 210.76 166 210.78 168 210.84 170 210.93 172 211.04 174 211.15 176 211.3 178 211.5 180 211.72 182 211.96 184 212.23 186 212.52 188 212.85 190 213.23 192 213.66 194 214.16 196 214.74 198 215.4 200 216.12 202 216.89 204 217.7 206 218.51 208 219.32 210 220.09 212 220.82 214 221.49 216 222.1 218 222.65 220 223.16 222 223.62 224 224.06 226 224.49 228 224.9 230 225.3 232 225.68 234 226.02 236 226.31 238 226.54 240 226.68 242 226.72 244 226.64 246 226.46 248 226.16 250 225.77 252 225.3 254 224.77 256 224.2 258 223.6 260 223 262 222.39 264 221.78 266 221.15 268 220.51 270 219.83 272 219.12 274 218.36 276 217.56 278 216.72 280 215.87 282 215 284 214.16 286 213.36 288 212.63 290 211.97 292 211.41 294 210.93 296 210.55 298 210.25 300 210.03 302 209.85 304 209.72 306 209.63 308 209.57 310 209.52 312 209.43 314 209.33 316 209.22 318 209.14 320 209.08 322 209.06 324 209.08 326 209.14 328 209.22 330 209.33 332 209.43 334 209.51 336 209.57 338 209.58 340 209.56 342 209.49" fill="none" stroke="#9F452C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 30V240M105.75 30V240M139.5 30V240M173.25 30V240M207 30V240M240.75 30V240M274.5 30V240M308.25 30V240M342 30V240" fill="none" stroke="#D3CBBB" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.5 3.5"/>
+<path d="M8 135H342M8 157H342M8 179H342M8 201H342" fill="none" stroke="#EAE5D9" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="9" y="140" width="3" height="12" rx="1" fill="#31653F"/>
+<text x="18" y="149.24" fill="#31653F" font-size="9" letter-spacing="0.8" font-weight="700">RULES</text>
+<rect x="9" y="162" width="3" height="12" rx="1" fill="#855F12"/>
+<text x="18" y="171.24" fill="#855F12" font-size="9" letter-spacing="0.8" font-weight="700">LLM</text>
+<rect x="9" y="184" width="3" height="12" rx="1" fill="#2F5F78"/>
+<text x="18" y="193.24" fill="#2F5F78" font-size="9" letter-spacing="0.8" font-weight="700">CHECK</text>
+<rect x="9" y="213" width="3" height="12" rx="1" fill="#9F452C"/>
+<text x="18" y="222.24" fill="#9F452C" font-size="9" letter-spacing="0.8" font-weight="700">CONF</text>
+<rect x="75" y="118" width="61.5" height="12" rx="2" fill="#31653F" stroke="#31653F" stroke-width="1" fill-opacity=".12" stroke-opacity=".6"/>
+<text x="105.75" y="127" fill="#31653F" font-size="9.5" text-anchor="middle" font-weight="700">A</text>
+<rect x="142.5" y="118" width="61.5" height="12" rx="2" fill="#31653F" stroke="#31653F" stroke-width="1" fill-opacity=".12" stroke-opacity=".6"/>
+<text x="173.25" y="127" fill="#31653F" font-size="9.5" text-anchor="middle" font-weight="700">B</text>
+<rect x="210" y="118" width="61.5" height="12" rx="2" fill="#9F452C" stroke="#9F452C" stroke-width="1" fill-opacity=".12" stroke-opacity=".6"/>
+<text x="240.75" y="127" fill="#9F452C" font-size="9.5" text-anchor="middle" font-weight="700">?</text>
+<rect x="277.5" y="118" width="61.5" height="12" rx="2" fill="#2F5F78" stroke="#2F5F78" stroke-width="1" fill-opacity=".12" stroke-opacity=".6"/>
+<text x="308.25" y="127" fill="#2F5F78" font-size="9.5" text-anchor="middle" font-weight="700">Σ</text>
+<text x="240.75" y="171" fill="#855F12" font-size="8" text-anchor="middle" letter-spacing="0.6" font-weight="700">FALLBACK</text>
+<text x="288.5" y="193" fill="#2F5F78" font-size="8.5" letter-spacing="0.4" font-weight="700">A+B=Σ</text>
+<path d="M320.5 189.3l2.1 2.4l3.9 -4.8" fill="none" stroke="#2F5F78" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="339" y="226.8" fill="#5C6057" font-size="8" text-anchor="end">0.80</text>
+<path d="M218.75 213V202" fill="none" stroke="#9F452C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M218.75 202H226.75L224.75 204.75L226.75 207.5H218.75Z" fill="#9F452C" stroke="#9F452C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="230.75" y="210.5" fill="#9F452C" font-size="8.5" letter-spacing="0.6" font-weight="700">REVIEW</text>
+<text x="18" y="262" fill="#5C6057" font-size="9.5" letter-spacing="1.2">AUDIT</text>
+<text x="60.5" y="262" fill="#242823" font-size="9.5">value → page · rule · confidence</text>
 </svg>

@@ -1,31 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="180" viewBox="0 0 360 180" role="img" aria-labelledby="title desc">
-<title id="title">PARALLEL / VOTE / INFER</title><desc id="desc">Simplified project schematic; explanatory illustration, not a measurement or live system.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="244" viewBox="0 0 360 244" role="img" aria-labelledby="title desc">
+<title id="title">Capture 003: an FPGA model ensemble</title><desc id="desc">Illustrative timing capture. Three parallel model lanes predict a class each cycle; a majority vote, registered on the next clock edge, resolves their disagreements.</desc>
 <style>
 text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
-.pulse {display:none;}
 </style>
-<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#21303A"/></pattern></defs>
-<rect width="360" height="180" rx="4" fill="#101820"/>
-<rect width="360" height="180" fill="url(#grid)"/>
-<text x="20" y="27" fill="#D99A63" font-size="11" text-anchor="start" letter-spacing="1">PARALLEL / VOTE / INFER</text>
-<text x="340" y="166" fill="#A9B6BA" font-size="9" text-anchor="end" letter-spacing="1">SCHEMATIC</text>
-<rect x="46" y="52" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
-<path d="M28 94 V62 H46 M94 62 H153 V94 H174" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M58 62 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="46" y="84" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
-<path d="M28 94 V94 H46 M94 94 H153 V94 H174" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M58 94 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="46" y="116" width="48" height="20" rx="2" fill="#15212A" stroke="#35454E"/>
-<path d="M28 94 V126 H46 M94 126 H153 V94 H174" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M58 126 h24" fill="none" stroke="#75C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M193 75 L212 94 L193 113 L174 94 Z" fill="none" stroke="#75C4BC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M212 94 H275" fill="none" stroke="#D99A63" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-<rect x="283" y="77" width="34" height="34" rx="2" fill="#15212A" stroke="#35454E"/>
-<rect x="292" y="86" width="16" height="16" rx="2" fill="#15212A" stroke="#D99A63"/>
-<path d="M290 70 V77 M290 111 V118 M276 84 H283 M317 84 H324" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M300 70 V77 M300 111 V118 M276 94 H283 M317 94 H324" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<path d="M310 70 V77 M310 111 V118 M276 104 H283 M317 104 H324" fill="none" stroke="#D99A63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<text x="70" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">MODELS</text>
-<text x="193" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">VOTE</text>
-<text x="300" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">INFER</text>
+<rect x="0.5" y="0.5" width="359" height="243" rx="10" fill="#212722" stroke="#3A453C" stroke-width="1"/>
+<text x="18" y="19" fill="#F3F0E7" font-size="11" letter-spacing="1.4" font-weight="700">YM-01</text>
+<text x="68" y="19" fill="#A4AD9E" font-size="9.5" letter-spacing="1.2">003 · TIMING</text>
+<text x="342" y="19" fill="#A4AD9E" font-size="9" text-anchor="end" letter-spacing="1.2">ILLUSTRATIVE</text>
+<rect x="8" y="28" width="344" height="180" rx="4" fill="#141915" stroke="#3A453C" stroke-width="1"/>
+<rect x="124.5" y="57" width="58" height="74" rx="0" fill="#E89A7F" fill-opacity=".07"/>
+<rect x="182.5" y="57" width="58" height="74" rx="0" fill="#E89A7F" fill-opacity=".07"/>
+<path d="M52 50H66.5V38H81V50H95.5V38H110V50H124.5V38H139V50H153.5V38H168V50H182.5V38H197V50H211.5V38H226V50H240.5V38H255V50H269.5V38H284V50H298.5V38H313V50H327.5V38H342" fill="none" stroke="#94B8C9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="miter"/>
+<path d="M52 68H66.5" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M66.5 68L71 60H120L124.5 68L120 76H71Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="95.5" y="71.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">3</text>
+<path d="M124.5 68L129 60H178L182.5 68L178 76H129Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="153.5" y="71.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">7</text>
+<path d="M182.5 68L187 60H236L240.5 68L236 76H187Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="211.5" y="71.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">2</text>
+<path d="M240.5 68L245 60H294L298.5 68L294 76H245Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="269.5" y="71.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">0</text>
+<path d="M298.5 68H342" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M52 94H66.5" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M66.5 94L71 86H120L124.5 94L120 102H71Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="95.5" y="97.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">3</text>
+<path d="M124.5 94L129 86H178L182.5 94L178 102H129Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="153.5" y="97.42" fill="#E89A7F" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">1</text>
+<path d="M182.5 94L187 86H236L240.5 94L236 102H187Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="211.5" y="97.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">2</text>
+<path d="M240.5 94L245 86H294L298.5 94L294 102H245Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="269.5" y="97.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">0</text>
+<path d="M298.5 94H342" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M52 120H66.5" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M66.5 120L71 112H120L124.5 120L120 128H71Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="95.5" y="123.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">3</text>
+<path d="M124.5 120L129 112H178L182.5 120L178 128H129Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="153.5" y="123.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">7</text>
+<path d="M182.5 120L187 112H236L240.5 120L236 128H187Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="211.5" y="123.42" fill="#E89A7F" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">5</text>
+<path d="M240.5 120L245 112H294L298.5 120L294 128H245Z" fill="#A3C89E" stroke="#A3C89E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<text x="269.5" y="123.42" fill="#A3C89E" font-size="9.5" text-anchor="middle" letter-spacing="0.8" font-weight="700">0</text>
+<path d="M298.5 120H342" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<path d="M52 149L56.5 140H91L95.5 149L91 158H56.5Z" fill="#A4AD9E" stroke="#A4AD9E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M95.5 149L100 140H149L153.5 149L149 158H100Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M153.5 149L158 140H207L211.5 149L207 158H158Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M211.5 149L216 140H265L269.5 149L265 158H216Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M269.5 149L274 140H323L327.5 149L323 158H274Z" fill="#E89A7F" stroke="#E89A7F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".13"/>
+<path d="M327.5 149H342" fill="none" stroke="#A4AD9E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<text x="117.5" y="153" fill="#F3F0E7" font-size="10.5" text-anchor="middle" font-weight="700">3</text>
+<text x="133.5" y="152.5" fill="#A4AD9E" font-size="8" text-anchor="middle">3/3</text>
+<text x="175.5" y="153" fill="#F3F0E7" font-size="10.5" text-anchor="middle" font-weight="700">7</text>
+<text x="191.5" y="152.5" fill="#E89A7F" font-size="8" text-anchor="middle" font-weight="700">2/3</text>
+<text x="233.5" y="153" fill="#F3F0E7" font-size="10.5" text-anchor="middle" font-weight="700">2</text>
+<text x="249.5" y="152.5" fill="#E89A7F" font-size="8" text-anchor="middle" font-weight="700">2/3</text>
+<text x="291.5" y="153" fill="#F3F0E7" font-size="10.5" text-anchor="middle" font-weight="700">0</text>
+<text x="307.5" y="152.5" fill="#A4AD9E" font-size="8" text-anchor="middle">3/3</text>
+<path d="M52 184H95.5V170H124.5V184H153.5V170H182.5V184H211.5V170H240.5V184H269.5V170H298.5V184H342" fill="none" stroke="#E3B866" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="miter"/>
+<path d="M52 30V206M81 30V206M110 30V206M139 30V206M168 30V206M197 30V206M226 30V206M255 30V206M284 30V206M313 30V206M342 30V206" fill="none" stroke="#3A463D" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.5 3.5"/>
+<path d="M8 55H342M8 134H342M8 164H342" fill="none" stroke="#262E28" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="9" y="38" width="3" height="12" rx="1" fill="#94B8C9"/>
+<text x="18" y="47.24" fill="#94B8C9" font-size="9" letter-spacing="0.8" font-weight="700">CLK</text>
+<rect x="9" y="62" width="3" height="12" rx="1" fill="#A3C89E"/>
+<text x="18" y="71.24" fill="#A3C89E" font-size="9" letter-spacing="0.8" font-weight="700">M1</text>
+<rect x="9" y="88" width="3" height="12" rx="1" fill="#A3C89E"/>
+<text x="18" y="97.24" fill="#A3C89E" font-size="9" letter-spacing="0.8" font-weight="700">M2</text>
+<rect x="9" y="114" width="3" height="12" rx="1" fill="#A3C89E"/>
+<text x="18" y="123.24" fill="#A3C89E" font-size="9" letter-spacing="0.8" font-weight="700">M3</text>
+<rect x="9" y="143" width="3" height="12" rx="1" fill="#E89A7F"/>
+<text x="18" y="152.24" fill="#E89A7F" font-size="9" letter-spacing="0.8" font-weight="700">VOTE</text>
+<rect x="9" y="171" width="3" height="12" rx="1" fill="#E3B866"/>
+<text x="18" y="180.24" fill="#E3B866" font-size="9" letter-spacing="0.8" font-weight="700">VALID</text>
+<text x="18" y="228" fill="#A4AD9E" font-size="9.5" letter-spacing="1.2">MAJORITY</text>
+<text x="81.2" y="228" fill="#F3F0E7" font-size="9.5">2 of 3 lanes decide</text>
 </svg>

@@ -1,4 +1,4 @@
-# Maintaining the Signal Foundry
+# Maintaining the YM-01 Bench
 
 This repository is Yohannes Melese's GitHub profile. Its artwork is generated locally, and the rendered README has no external widget or font dependencies.
 
@@ -12,7 +12,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/build.py --check
 ```
 
-Edit `profile.json` for identity, project descriptions, credentials, destinations, and the public repository allowlist. Edit `templates/README.md.tmpl` for section structure. Edit `scripts/art.py` for original geometry, palettes, and motion. Commit the generated README and SVGs together with source changes. The builder is deterministic and works offline from the committed activity snapshot; `--check` never rewrites files.
+Edit `profile.json` for identity, project descriptions, credentials, destinations, and the public repository allowlist. Edit `templates/README.md.tmpl` for section structure. Edit `scripts/instrument.py` for the palette and the instrument's drawing primitives (UART encoding, traces, buses, graticule), and `scripts/art.py` for the captures, section markers, and hero motion. Commit the generated README and SVGs together with source changes. The builder is deterministic and works offline from the committed activity snapshot; `--check` never rewrites files.
 
 The content was curated from Yohannes's portfolio. This repository has no dependency on that site's source checkout. See [content provenance and design decisions](DESIGN.md) when updating claims or project status.
 
@@ -35,10 +35,10 @@ GitHub [disables scheduled workflows after 60 days of repository inactivity](htt
 
 ## Visual review and publication
 
-Inspect the README on its GitHub branch in both light and dark themes, at desktop and mobile widths. Confirm the browser selects compact artwork below 600px. Reduced motion should show the complete static hero. The animation runs once; project diagrams stay still. Check image-free readability, anchor links, and every public destination.
+Inspect the README on its GitHub branch in both light and dark themes, at desktop and mobile widths. Confirm the browser selects compact artwork below 600px. Reduced motion should show the complete static hero. The hero's sweep runs once; project captures and section markers stay still. Check image-free readability, anchor links, and every public destination.
 
 Changes to `main` are displayed on the GitHub profile. Review through a pull request first. Reverting the merge restores the prior README and artwork. Preview screenshots in this repository document the initial review; regenerate them when changing the visual design.
 
 ## Checks
 
-The tests cover generation integrity, complete asset references, SVG validity and size, remote-content escaping, URL rejection, empty/private repositories, failed/partial refreshes, and no-change updates. They use fake API responses and never require a token. CI also checks that committed output matches the source.
+The tests cover generation integrity, complete asset references, SVG validity and size, the artwork's factual claims (the UART waveform decodes to the name, every vote is a majority, CLI exit codes match zindi-cli's contract), palette contrast, single-run motion, remote-content escaping, URL rejection, empty/private repositories, failed/partial refreshes, and no-change updates. They use fake API responses and never require a token. CI also checks that committed output matches the source.

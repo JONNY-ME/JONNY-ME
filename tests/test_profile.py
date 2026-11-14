@@ -10,6 +10,7 @@ from urllib.error import HTTPError
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import art
 import build
+import instrument
 import update_activity
 
 
@@ -139,6 +140,78 @@ class RenderingTests(unittest.TestCase):
                 with self.assertRaises(SystemExit):
                     build.build(check=True, root=root)
                 self.assertEqual(path.read_text(), "old")
+
+    def test_section_markers_are_decorative_and_precede_each_heading(self):
+        readme = build.outputs()[build.ROOT / "README.md"]
+        for n in range(1, 6):
+            marker = readme.index(f'srcset="assets/marker-{n}-dark.svg"')
+            heading = readme.index(f"## 0{n} / ")
+            self.assertLess(marker, heading)
+            self.assertNotIn("## 0", readme[marker:heading])
+        self.assertEqual(readme.count('alt=""'), 5)
+
+
+class InstrumentTests(unittest.TestCase):
+    """The artwork's claims are checked: the waveform really encodes the name, the vote is a majority."""
+
+    def test_uart_waveform_decodes_to_name(self):
+        bits = instrument.uart_bits(art.NAME)
+        decoded = ""
+        for start in range(0, len(bits), 10):
+            frame = bits[start:start + 10]
+            self.assertEqual((frame[0], frame[9]), (0, 1), "8N1 start and stop bits")
+            decoded += chr(sum(bit << i for i, bit in enumerate(frame[1:9])))
+        self.assertEqual(decoded, "YOHANNES")
+        for theme in instrument.PALETTES:
+            hero = art.hero(theme)
+            for char in art.NAME:
+                self.assertIn(f"0x{ord(char):02X}", hero)
+            self.assertIn(f"{len(bits) / art.BAUD * 1000:.2f} ms", hero)
+
+    def test_vote_lane_is_the_majority_of_three_models(self):
+        for lanes in art.FPGA_CYCLES:
+            self.assertEqual(len(lanes), 3)
+            vote, agree = art.majority(list(lanes))
+            self.assertGreaterEqual(agree, 2, "every illustrated cycle must have a 2-of-3 majority")
+            self.assertEqual(sum(value == vote for value in lanes), agree)
+        self.assertTrue(any(art.majority(list(lanes))[1] == 2 for lanes in art.FPGA_CYCLES))
+
+    def test_cli_session_matches_the_zindi_cli_exit_code_contract(self):
+        exit_codes = {"API_ERROR": 1, "RATE_LIMITED": 1, "USAGE": 2, "NO_CHALLENGE": 2, "VALIDATION": 2,
+                      "AUTH_REQUIRED": 3, "AUTH_EXPIRED": 3, "NOT_FOUND": 4, "ENDPOINT_UNSUPPORTED": 4, "NETWORK": 5}
+        for entry in art.CLI_SESSION:
+            self.assertTrue(entry["command"].startswith("zindi "))
+            if entry["exit"] == 0:
+                self.assertEqual(entry["stream"], "stdout")
+                self.assertTrue(entry["output"].startswith('{"ok": true'))
+            else:
+                self.assertEqual(entry["stream"], "stderr")
+                code = entry["output"].split('"code": "')[1].split('"')[0]
+                self.assertEqual(exit_codes[code], entry["exit"])
+
+    def test_palette_contrast(self):
+        for theme, palette in instrument.PALETTES.items():
+            for surface in instrument.SURFACES:
+                for color in instrument.TEXT_COLORS:
+                    with self.subTest(theme=theme, surface=surface, color=color):
+                        self.assertGreaterEqual(instrument.contrast(palette[color], palette[surface]), 4.5)
+            for flag in ["ch0", "ch1", "ch2", "ch3"]:
+                with self.subTest(theme=theme, flag=flag):
+                    self.assertGreaterEqual(instrument.contrast(palette["screen"], palette[flag]), 4.5)
+            page = "#0D1117" if theme == "dark" else "#FFFFFF"
+            for trace in ["ch0", "ch1", "ch2", "ch3"]:
+                with self.subTest(theme=theme, page=page, trace=trace):
+                    self.assertGreaterEqual(instrument.contrast(palette[trace], page), 3)
+
+    def test_motion_runs_once_and_settles_quickly(self):
+        self.assertLessEqual(art.MOTION_END, 5)
+        for name, svg in art.assets().items():
+            with self.subTest(name=name):
+                self.assertNotIn("infinite", svg)
+                if name.startswith("hero-") and "static" not in name:
+                    self.assertIn('class="shutter"', svg)
+                else:
+                    self.assertNotIn("class=", svg)
 
     def test_unsafe_links_rejected(self):
         for value in ["javascript:alert(1)", "https://", "https://foo\nbar", 'https://foo/"bad']:

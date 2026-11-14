@@ -20,7 +20,7 @@
       "description": "Tax returns arrive as inconsistent PDFs, scans, and supporting statements. I built a pipeline that combines OCR and deterministic extraction with an LLM fallback, then checks arithmetic identities before writing a workbook. Confidence-based review and a JSON audit trail keep the output inspectable.",
       "stack": "Python · OCR · Pydantic · PySide6",
       "url": "https://yohannesmelese.com/projects/tax-document-ocr",
-      "alt": "Document extraction schematic: source pages pass through extraction and validation into an auditable workbook."
+      "alt": "Probe capture: fields on a tax page feed rules, LLM fallback, arithmetic check, and confidence channels; a low-confidence field is flagged for review."
     },
     {
       "id": "fpga",
@@ -29,7 +29,7 @@
       "description": "My master's research explored an ensemble of lightweight neural networks on FPGA hardware. I combined parallel execution, quantization, and a voting stage to investigate real-time inference. It brought model design and hardware implementation into the same engineering problem.",
       "stack": "Verilog · FPGA · TensorFlow · Python",
       "url": "https://yohannesmelese.com/projects/fpga-ensemble-networks",
-      "alt": "FPGA ensemble schematic: three parallel model lanes converge at a voting stage and produce one prediction."
+      "alt": "Timing capture: three parallel model lanes predict each cycle, and a majority vote registered on the next clock edge resolves their disagreements."
     },
     {
       "id": "cli",
@@ -39,7 +39,7 @@
       "stack": "Python · Typer · Requests · pytest",
       "url": "https://yohannesmelese.com/projects/zindi-cli",
       "repository": "https://github.com/JONNY-ME/zindi-cli",
-      "alt": "Zindi CLI workflow schematic: discover a competition, download its data, submit predictions, and inspect results."
+      "alt": "Console capture: a zindi-cli session where every command returns one JSON document, and an expired login exits with code 3."
     }
   ],
   "research": [

@@ -18,12 +18,20 @@ Addis Ababa, Ethiopia
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/hero-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-static-light.svg" width="840" alt="The Signal Foundry: a YM circuit branches into learning, software, and hardware. A conceptual illustration of my engineering practice.">
+  <img src="assets/hero-static-light.svg" width="840" alt="YM-01 Bench capture: a UART signal decodes byte by byte into YOHANNES, above learning, software, and hardware channels. A conceptual illustration of my engineering practice.">
 </picture>
 
 I'm an AI/ML engineer with a foundation in electronics, computer science, and competitive programming. My work connects research with the less glamorous details that make a system useful: evaluation, validation, reproducibility, and delivery.
 
 I like problems where the model is only part of the answer. A document pipeline needs an audit trail. A language model needs an honest evaluation. A hardware implementation needs to respect the device it runs on.
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/marker-1-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/marker-1-light-compact.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/marker-1-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/marker-1-light.svg">
+  <img src="assets/marker-1-light.svg" width="840" alt="">
+</picture>
 
 ## 01 / Selected systems
 
@@ -34,7 +42,7 @@ I like problems where the model is only part of the answer. A document pipeline 
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/documents-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/documents-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/documents-light.svg">
-  <img src="assets/documents-light.svg" width="840" alt="Document extraction schematic: source pages pass through extraction and validation into an auditable workbook.">
+  <img src="assets/documents-light.svg" width="840" alt="Probe capture: fields on a tax page feed rules, LLM fallback, arithmetic check, and confidence channels; a low-confidence field is flagged for review.">
 </picture>
 
 **Tax Document Extraction Pipeline**
@@ -52,7 +60,7 @@ Tax returns arrive as inconsistent PDFs, scans, and supporting statements. I bui
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/fpga-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/fpga-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/fpga-light.svg">
-  <img src="assets/fpga-light.svg" width="840" alt="FPGA ensemble schematic: three parallel model lanes converge at a voting stage and produce one prediction.">
+  <img src="assets/fpga-light.svg" width="840" alt="Timing capture: three parallel model lanes predict each cycle, and a majority vote registered on the next clock edge resolves their disagreements.">
 </picture>
 
 **FPGA-Based Ensemble Neural Networks**
@@ -70,7 +78,7 @@ My master's research explored an ensemble of lightweight neural networks on FPGA
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/cli-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/cli-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/cli-light.svg">
-  <img src="assets/cli-light.svg" width="840" alt="Zindi CLI workflow schematic: discover a competition, download its data, submit predictions, and inspect results.">
+  <img src="assets/cli-light.svg" width="840" alt="Console capture: a zindi-cli session where every command returns one JSON document, and an expired login exits with code 3.">
 </picture>
 
 **Zindi CLI**
@@ -81,9 +89,17 @@ Moving between a competition page, datasets, submissions, and results interrupts
 
 [Explore the code ↗](<https://github.com/JONNY-ME/zindi-cli>) · [Read the case study ↗](<https://yohannesmelese.com/projects/zindi-cli>)
 
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/marker-2-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/marker-2-light-compact.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/marker-2-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/marker-2-light.svg">
+  <img src="assets/marker-2-light.svg" width="840" alt="">
+</picture>
+
 ## 02 / Research bench
 
-Ongoing research and experiments — questions I'm working through.
+Ongoing research and experiments: questions I'm working through.
 
 **[African-language speech recognition](<https://yohannesmelese.com/projects/african-language-asr>)**  
 Combining recognizers for Lingala, Shona, and Luganda, with speaker-aware evaluation and language routing that cannot rely on hidden labels.
@@ -93,6 +109,14 @@ Comparing baselines and LoRA adaptation for health questions in low-resource Afr
 
 **[Historical handwriting recognition](<https://yohannesmelese.com/projects/historical-handwriting-recognition>)**  
 Adapting visual readers for seventeenth-century archives, preserving transcript provenance, replayable experiments, and negative findings.
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/marker-3-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/marker-3-light-compact.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/marker-3-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/marker-3-light.svg">
+  <img src="assets/marker-3-light.svg" width="840" alt="">
+</picture>
 
 ## 03 / Engineering foundations
 
@@ -111,15 +135,31 @@ Before these projects, I worked on Python development and training data at Turin
 
 </details>
 
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/marker-4-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/marker-4-light-compact.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/marker-4-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/marker-4-light.svg">
+  <img src="assets/marker-4-light.svg" width="840" alt="">
+</picture>
+
 ## 04 / Workbench log
 
 Latest public changes from three selected repositories. Refreshed daily.
 
 <!-- activity:start -->
-- **2026-07-30** · [zindi-cli](<https://github.com/JONNY-ME/zindi-cli>) — [\[test\] lock down the live API contract](<https://github.com/JONNY-ME/zindi-cli/commit/c0e3f11450bc52aa6454ea3a09f85acddce0b34b>)
-- **2026-05-19** · [multilingual-health-qa](<https://github.com/JONNY-ME/multilingual-health-qa>) — [Rouge LF 1 0\.2531 LLM Judge 0\.6826 Rouge 1 F 1 0\.3552](<https://github.com/JONNY-ME/multilingual-health-qa/commit/85f55f9daa7bd7f18e5c0d74bc8ffd42afa6c3ab>)
-- **2022-08-15** · [Microsoft-Rice-Disease-Classification-Challenge](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge>) — [lightning approach](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge/commit/31a04a3618a10e771f16dc718d6f2791cb709e22>)
+- **2026-07-30** · [zindi-cli](<https://github.com/JONNY-ME/zindi-cli>) · [\[test\] lock down the live API contract](<https://github.com/JONNY-ME/zindi-cli/commit/c0e3f11450bc52aa6454ea3a09f85acddce0b34b>)
+- **2026-05-19** · [multilingual-health-qa](<https://github.com/JONNY-ME/multilingual-health-qa>) · [Rouge LF 1 0\.2531 LLM Judge 0\.6826 Rouge 1 F 1 0\.3552](<https://github.com/JONNY-ME/multilingual-health-qa/commit/85f55f9daa7bd7f18e5c0d74bc8ffd42afa6c3ab>)
+- **2022-08-15** · [Microsoft-Rice-Disease-Classification-Challenge](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge>) · [lightning approach](<https://github.com/JONNY-ME/Microsoft-Rice-Disease-Classification-Challenge/commit/31a04a3618a10e771f16dc718d6f2791cb709e22>)
 <!-- activity:end -->
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/marker-5-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/marker-5-light-compact.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/marker-5-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/marker-5-light.svg">
+  <img src="assets/marker-5-light.svg" width="840" alt="">
+</picture>
 
 ## 05 / Start a conversation
 
@@ -129,4 +169,4 @@ Working on an AI system, document automation, or hardware-aware ML? I'd be glad 
 
 ---
 
-<sub>The Signal Foundry · Original diagrams, real projects. [How this profile is built](docs/MAINTAINING.md).</sub>
+<sub>YM-01 Bench · Original captures, real projects. [How this profile is built](docs/MAINTAINING.md).</sub>
