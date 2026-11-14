@@ -21,7 +21,7 @@ text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", mo
 <rect x="289" y="97" width="7" height="19" rx="0" fill="#75C4BC" stroke="#75C4BC"/>
 <rect x="303" y="81" width="7" height="35" rx="0" fill="#75C4BC" stroke="#75C4BC"/>
 <rect x="317" y="88" width="7" height="28" rx="0" fill="#75C4BC" stroke="#75C4BC"/>
-<text x="50" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">CLI</text>
-<text x="175" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">DATA</text>
-<text x="303" y="153" fill="#F4EFE6" font-size="12" text-anchor="middle" letter-spacing="1">RESULTS</text>
+<text x="50" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">CLI</text>
+<text x="175" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">DATA</text>
+<text x="303" y="153" fill="#F4EFE6" font-size="17" text-anchor="middle" letter-spacing="1">RESULTS</text>
 </svg>

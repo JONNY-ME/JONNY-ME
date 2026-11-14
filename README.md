@@ -113,7 +113,7 @@ Before these projects, I worked on Python development and training data at Turin
 
 ## 04 / Workbench log
 
-Latest public changes from three selected repositories. Commit dates describe the work; this is a daily snapshot, not a live status indicator.
+Latest public changes from three selected repositories. Refreshed daily.
 
 <!-- activity:start -->
 - **2026-07-30** · [zindi-cli](<https://github.com/JONNY-ME/zindi-cli>) — [\[test\] lock down the live API contract](<https://github.com/JONNY-ME/zindi-cli/commit/c0e3f11450bc52aa6454ea3a09f85acddce0b34b>)

@@ -25,7 +25,7 @@ text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", mo
 <path d="M290 70 V77 M290 111 V118 M276 84 H283 M317 84 H324" fill="none" stroke="#8D4C27" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M300 70 V77 M300 111 V118 M276 94 H283 M317 94 H324" fill="none" stroke="#8D4C27" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M310 70 V77 M310 111 V118 M276 104 H283 M317 104 H324" fill="none" stroke="#8D4C27" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-<text x="70" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">MODELS</text>
-<text x="193" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">VOTE</text>
-<text x="300" y="153" fill="#182A33" font-size="12" text-anchor="middle" letter-spacing="1">INFER</text>
+<text x="70" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">MODELS</text>
+<text x="193" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">VOTE</text>
+<text x="300" y="153" fill="#182A33" font-size="17" text-anchor="middle" letter-spacing="1">INFER</text>
 </svg>

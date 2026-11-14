@@ -93,7 +93,7 @@ def hero(theme, compact=False, motion=True):
             d.dot(324, y, 3, "teal")
         d.path("M24 221 H336")
         for x, text in [(24, "LEARN"), (137, "BUILD"), (262, "RUN")]:
-            d.text(x, 251, text, 15, "ink", spacing=1)
+            d.text(x, 251, text, 18, "ink", spacing=1)
         d.text(24, 279, "AI / SOFTWARE / ELECTRONICS", 11)
     else:
         d.text(816, 31, "ADDIS ABABA  /  ETHIOPIA", 11, anchor="end", spacing=1)
@@ -172,7 +172,7 @@ def project(kind, theme, compact=False):
             d.rect(x, 116-h, 7, h, fill="teal", stroke="teal", radius=0)
         labels = ["CLI", "DATA", "RESULTS"]
     for x, label in zip(xs, labels):
-        d.text(x, 153, label, 12, "ink", anchor="middle", spacing=1)
+        d.text(x, 153, label, 17 if compact else 12, "ink", anchor="middle", spacing=1)
     return d.finish()
 
 
