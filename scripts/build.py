@@ -34,12 +34,20 @@ def link(label, url):
 
 
 def picture(name, alt):
+    reduced = ""
+    if name == "hero":
+        for compact in [True, False]:
+            width_query = "(max-width: 600px) and " if compact else ""
+            suffix = "-compact" if compact else ""
+            for theme in ["dark", "light"]:
+                reduced += f'  <source media="{width_query}(prefers-reduced-motion: reduce) and (prefers-color-scheme: {theme})" srcset="assets/hero-static-{theme}{suffix}.svg">\n'
+    fallback = "hero-static" if name == "hero" else name
     return f'''<picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/{name}-dark-compact.svg">
+{reduced}  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/{name}-dark-compact.svg">
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/{name}-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/{name}-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/{name}-light.svg">
-  <img src="assets/{name}-light.svg" width="840" alt="{escape(alt, quote=True)}">
+  <img src="assets/{fallback}-light.svg" width="840" alt="{escape(alt, quote=True)}">
 </picture>'''
 
 

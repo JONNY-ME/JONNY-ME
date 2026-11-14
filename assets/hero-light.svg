@@ -2,11 +2,13 @@
 <title id="title">The Signal Foundry — Yohannes Melese</title><desc id="desc">An input signal traces a YM monogram, then branches into learning, software, and hardware. A conceptual illustration of interdisciplinary engineering.</desc>
 <style>
 text {font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}
+
 .trace {stroke-dasharray: 1400; stroke-dashoffset: 0; animation: draw 4.5s ease-out 1;}
 .pulse {opacity: 0; animation: pulse 4.8s ease-in-out 1;}
 @keyframes draw {from {stroke-dashoffset:1400;} to {stroke-dashoffset:0;}}
 @keyframes pulse {0%,100% {opacity:0;} 30%,65% {opacity:.8;}}
 @media (prefers-reduced-motion: reduce) {.trace,.pulse {animation:none;} .pulse {display:none;}}
+
 </style>
 <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#DEDCD3"/></pattern></defs>
 <rect width="840" height="310" rx="4" fill="#F4EFE6"/>

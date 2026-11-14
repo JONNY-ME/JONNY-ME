@@ -10,7 +10,7 @@ The desktop hero uses an 840 × 310 canvas. The compact hero uses 360 × 300 and
 
 Dark colors: ink `#101820`, ivory `#F4EFE6`, copper `#D99A63`, teal `#75C4BC`. The light palette uses ivory surfaces with ink text, copper `#8D4C27`, and teal `#236B66`. The palettes share geometry. Fonts use system monospace stacks inside the artwork; the profile's text remains native GitHub typography.
 
-The hero trace draws once over 4.5 seconds; one junction glows and settles by 4.8 seconds. Under `prefers-reduced-motion: reduce`, the animation is disabled and the final geometry remains visible. No interaction or essential content depends on animation. Illustrations contain no scripts, embedded HTML, bitmap assets, external fonts, or network calls.
+The hero trace draws once over 4.5 seconds; one junction glows and settles by 4.8 seconds. Under `prefers-reduced-motion: reduce`, the picture element selects a separate static SVG with identical final geometry and no animation rules. This also avoids relying on media-query propagation into an embedded image; the animated SVG retains its own reduced-motion CSS as a second safeguard. No interaction or essential content depends on animation. Illustrations contain no scripts, embedded HTML, bitmap assets, external fonts, or network calls.
 
 ## Content provenance
 

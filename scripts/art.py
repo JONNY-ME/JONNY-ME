@@ -10,17 +10,20 @@ PALETTES = {
 
 
 class Drawing:
-    def __init__(self, width, height, theme, title, description):
+    def __init__(self, width, height, theme, title, description, motion=False):
         self.w, self.h, self.c = width, height, PALETTES[theme]
+        motion_css = '''
+.trace {stroke-dasharray: 1400; stroke-dashoffset: 0; animation: draw 4.5s ease-out 1;}
+.pulse {opacity: 0; animation: pulse 4.8s ease-in-out 1;}
+@keyframes draw {from {stroke-dashoffset:1400;} to {stroke-dashoffset:0;}}
+@keyframes pulse {0%,100% {opacity:0;} 30%,65% {opacity:.8;}}
+@media (prefers-reduced-motion: reduce) {.trace,.pulse {animation:none;} .pulse {display:none;}}
+''' if motion else '.pulse {display:none;}'
         self.parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(title)}</title><desc id="desc">{escape(description)}</desc>
 <style>
 text {{font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;}}
-.trace {{stroke-dasharray: 1400; stroke-dashoffset: 0; animation: draw 4.5s ease-out 1;}}
-.pulse {{opacity: 0; animation: pulse 4.8s ease-in-out 1;}}
-@keyframes draw {{from {{stroke-dashoffset:1400;}} to {{stroke-dashoffset:0;}}}}
-@keyframes pulse {{0%,100% {{opacity:0;}} 30%,65% {{opacity:.8;}}}}
-@media (prefers-reduced-motion: reduce) {{.trace,.pulse {{animation:none;}} .pulse {{display:none;}}}}
+{motion_css}
 </style>
 <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="{self.c['grid']}"/></pattern></defs>
 <rect width="{width}" height="{height}" rx="4" fill="{self.c['bg']}"/>
@@ -73,10 +76,10 @@ def chip(d, x, y):
         d.path(f"M{x+a} {y-24} V{y-17} M{x+a} {y+17} V{y+24} M{x-24} {y+a} H{x-17} M{x+17} {y+a} H{x+24}", "copper", 1)
 
 
-def hero(theme, compact=False):
+def hero(theme, compact=False, motion=True):
     width, height = (360, 300) if compact else (840, 310)
     d = Drawing(width, height, theme, "The Signal Foundry — Yohannes Melese",
-                "An input signal traces a YM monogram, then branches into learning, software, and hardware. A conceptual illustration of interdisciplinary engineering.")
+                "An input signal traces a YM monogram, then branches into learning, software, and hardware. A conceptual illustration of interdisciplinary engineering.", motion=motion)
     d.text(24, 31, "THE SIGNAL FOUNDRY", 12, "copper", spacing=1.7)
     if compact:
         d.text(336, 31, "YM / 01", 10, anchor="end")
@@ -179,6 +182,7 @@ def assets():
         for compact in [False, True]:
             suffix = f"{theme}{'-compact' if compact else ''}.svg"
             result[f"hero-{suffix}"] = hero(theme, compact)
+            result[f"hero-static-{suffix}"] = hero(theme, compact, motion=False)
             for kind in ["documents", "fpga", "cli"]:
                 result[f"{kind}-{suffix}"] = project(kind, theme, compact)
     return result

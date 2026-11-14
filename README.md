@@ -10,11 +10,15 @@ Addis Ababa, Ethiopia
 [Portfolio ↗](<https://yohannesmelese.com>) · [Selected work ↓](#01--selected-systems) · [Contact ↗](<mailto:yohannesmelese4@gmail.com>)
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="assets/hero-static-dark-compact.svg">
+  <source media="(max-width: 600px) and (prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="assets/hero-static-light-compact.svg">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="assets/hero-static-dark.svg">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="assets/hero-static-light.svg">
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/hero-dark-compact.svg">
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/hero-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-light.svg" width="840" alt="The Signal Foundry: a YM circuit branches into learning, software, and hardware. A conceptual illustration of my engineering practice.">
+  <img src="assets/hero-static-light.svg" width="840" alt="The Signal Foundry: a YM circuit branches into learning, software, and hardware. A conceptual illustration of my engineering practice.">
 </picture>
 
 I'm an AI/ML engineer with a foundation in electronics, computer science, and competitive programming. My work connects research with the less glamorous details that make a system useful: evaluation, validation, reproducibility, and delivery.

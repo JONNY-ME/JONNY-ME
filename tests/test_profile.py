@@ -104,7 +104,10 @@ class RenderingTests(unittest.TestCase):
             with self.subTest(name=name):
                 root = ET.fromstring(svg)
                 self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
-                self.assertIn("prefers-reduced-motion", svg)
+                if "@keyframes" in svg:
+                    self.assertIn("prefers-reduced-motion", svg)
+                if "static" in name:
+                    self.assertNotIn("@keyframes", svg)
                 for node in root.iter():
                     self.assertNotIn(node.tag.split("}")[-1], {"script", "foreignObject", "image"})
                     self.assertFalse(any(key.startswith("on") for key in node.attrib))
@@ -122,6 +125,7 @@ class RenderingTests(unittest.TestCase):
         self.assertIn("#01--selected-systems", readme)
         self.assertEqual(readme.count("<!-- activity:start -->"), 1)
         self.assertEqual(readme.count("<!-- activity:end -->"), 1)
+        self.assertLess(readme.index('srcset="assets/hero-static-dark-compact.svg"'), readme.index('srcset="assets/hero-dark-compact.svg"'))
 
     def test_check_does_not_write_missing_or_stale_outputs(self):
         with tempfile.TemporaryDirectory() as folder:
