@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="172" viewBox="0 0 360 172" role="img" aria-labelledby="title desc"><title id="title">Rice disease classification</title><desc id="desc">Comparing vision models to recognize disease in rice plants. 26 stars. Jupyter Notebook.</desc>
+<style>text{font-family:Inter,Arial,Helvetica,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}</style>
+<rect x="0" y="0" width="360" height="172" rx="18" fill="#101820" />
+<rect x="0" y="0" width="4" height="172" rx="0" fill="#D99A63" />
+<text x="22" y="30" font-size="20" fill="#F4EFE6" font-weight="600" text-anchor="start" letter-spacing="0">Rice disease classification</text>
+<path d="M328 20 h10 v10 M328 30 l10 -10" stroke="#D99A63" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="22" y="59" font-size="17" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Comparing vision models to</text>
+<text x="22" y="81" font-size="17" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">recognize disease in rice plants.</text>
+<text x="22" y="150" font-size="14" fill="#D99A63" font-weight="400" text-anchor="start" letter-spacing="0">Computer vision · PyTorch</text>
+<text x="340" y="150" font-size="14" fill="#A6B6BF" font-weight="400" text-anchor="end" letter-spacing="0">26 stars</text>
+</svg>

@@ -1,223 +1,227 @@
+import calendar
+from datetime import date, timedelta
 import json
+import os
+from pathlib import Path
+import re
+import subprocess
 import sys
 import tempfile
 import unittest
-import xml.etree.ElementTree as ET
-from pathlib import Path
 from unittest.mock import patch
-from urllib.error import HTTPError
+import xml.etree.ElementTree as ET
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 import art
 import build
-import instrument
-import update_activity
+import github_data as data
+import update_activity as updater
 
 
-REPO = "JONNY-ME/zindi-cli"
-COMMIT = {"sha": "a" * 40, "commit": {"message": "A useful change\n\nDetails", "committer": {"date": "2026-07-30T09:33:38Z"}}}
+def repo(name='zindi-cli',fork=False,stars=2,languages=None):
+    return dict(name=name,url='https://github.com/JONNY-ME/'+name,fork=fork,stars=stars,
+                primary_language='Python',languages=languages or {'Python':100})
 
 
-def fake_fetch(path):
-    return [COMMIT] if "/commits?" in path else {"private": False, "size": 2}
+def snapshot(start='2024-01-01',end='2024-01-04',counts=None,repos=None):
+    days={d.isoformat():0 for d in data.dates_between(date.fromisoformat(start),date.fromisoformat(end))}
+    days.update(counts or {})
+    return dict(schema_version=1,created_at=start+'T12:00:00Z',as_of=end,contributions=days,
+                repositories=repos if repos is not None else [repo()])
 
 
-class ActivityTests(unittest.TestCase):
-    def test_records_only_public_commit_metadata(self):
-        result = update_activity.collect([REPO], fake_fetch)
-        self.assertEqual(result["entries"][0]["title"], "A useful change")
-        self.assertEqual(set(result["entries"][0]), {"repository", "sha", "date", "title"})
+def calendar_html(year):
+    return ''.join(f'<td id="d{i}" data-date="{day}"></td><tool-tip for="d{i}">{"1,234 contributions" if i==0 else "1 contribution" if i==1 else "No contributions"} on a date.</tool-tip>'
+                   for i,day in enumerate(data.dates_between(date(year,1,1),date(year,12,31))))
 
-    def test_private_repository_rejected(self):
-        with self.assertRaisesRegex(ValueError, "must be public"):
-            update_activity.collect([REPO], lambda _: {"private": True})
 
-    def test_repository_path_injection_rejected(self):
-        with self.assertRaises(ValueError):
-            update_activity.collect(["JONNY-ME/../../private"], fake_fetch)
+def api_node(name='zindi-cli',private=False,more_languages=False):
+    return dict(name=name,url=f'https://github.com/JONNY-ME/{name}',isFork=False,isPrivate=private,
+                stargazerCount=2,primaryLanguage={'name':'Python'},languages={
+                'edges':[{'size':100,'node':{'name':'Python'}}],
+                'pageInfo':{'hasNextPage':more_languages,'endCursor':'lang1' if more_languages else None}})
 
-    def test_empty_repository(self):
-        def empty(path):
-            if "/commits?" in path:
-                raise HTTPError(path, 409, "Git Repository is empty", {}, None)
-            return {"private": False, "size": 0}
-        self.assertEqual(update_activity.collect([REPO], empty), {"entries": []})
-        self.assertIn("first successful refresh", build.activity_markdown({"entries": []}, [REPO]))
 
-    def test_conflict_on_nonempty_repository_is_not_swallowed(self):
-        def conflict(path):
-            if "/commits?" in path:
-                raise HTTPError(path, 409, "Conflict", {}, None)
-            return {"private": False, "size": 42}
-        with self.assertRaises(HTTPError):
-            update_activity.collect([REPO], conflict)
+def fake_api(query,variables):
+    return {'user':{'createdAt':'2024-01-01T00:00:00Z','repositories':{'nodes':[api_node()],
+            'pageInfo':{'hasNextPage':False,'endCursor':None}}}}
 
-    def test_remote_titles_cannot_inject_markdown_or_html(self):
-        result = update_activity.collect([REPO], fake_fetch)
-        result["entries"][0]["title"] = '<img src=x> [click](javascript:alert(1))\n# header | `code`'
-        rendered = build.activity_markdown(result, [REPO])
-        self.assertNotIn("<img", rendered)
-        self.assertIn("&lt;img", rendered)
-        self.assertIn(r"\[click\]", rendered)
-        self.assertIn(r"\# header \| \`code\`", rendered)
-        self.assertNotIn("\n", rendered)
 
-    def test_invalid_commit_sha_rejected(self):
-        result = update_activity.collect([REPO], fake_fetch)
-        result["entries"][0]["sha"] = "../../something"
-        with self.assertRaises(ValueError):
-            build.activity_markdown(result, [REPO])
+class MetricTests(unittest.TestCase):
+    def test_today_and_yesterday_grace(self):
+        s=snapshot(counts={'2024-01-02':2,'2024-01-03':1})
+        self.assertEqual(data.metrics(s)['current'],2)
+        s['contributions']['2024-01-04']=3
+        self.assertEqual(data.metrics(s)['current'],3)
 
-    def test_failed_refresh_preserves_snapshot_and_noop_preserves_mtime(self):
+    def test_gap_breaks_current_and_preserves_longest(self):
+        m=data.metrics(snapshot(counts={'2024-01-01':1,'2024-01-02':4}))
+        self.assertEqual((m['current'],m['longest']),(0,2))
+
+    def test_year_boundary_and_leap_day(self):
+        s=snapshot('2023-12-30','2024-03-01')
+        s['contributions']={day:1 for day in s['contributions']}
+        m=data.metrics(s)
+        self.assertEqual(m['current'],63)
+        self.assertEqual(m['longest'],63)
+
+    def test_zero_history(self):
+        m=data.metrics(snapshot(repos=[]))
+        self.assertEqual((m['current'],m['longest'],m['stars'],m['repositories']),(0,0,0,0))
+        self.assertEqual(m['languages'],[])
+
+    def test_longest_is_not_limited_to_display_year(self):
+        s=snapshot('2020-01-01','2024-01-04')
+        for i in range(80):s['contributions'][(date(2020,1,1)+timedelta(days=i)).isoformat()]=1
+        m=data.metrics(s)
+        self.assertEqual(m['longest'],80)
+        self.assertEqual(m['contributions'],0)
+        self.assertEqual(len(m['recent']),365)
+
+    def test_language_denominator_and_fork_exclusions(self):
+        s=snapshot(repos=[repo(languages={'Jupyter Notebook':90,'Python':10}),repo('fork',True,50,{'Java':1000}),repo('JONNY-ME',False,3,{'Python':500})])
+        m=data.metrics(s)
+        self.assertEqual(m['language_total'],100)
+        self.assertEqual(m['languages'],[('Jupyter Notebook',90),('Python',10)])
+        self.assertEqual((m['stars'],m['repositories']),(5,3))
+
+    def test_top_six_and_other_preserve_total(self):
+        s=snapshot(repos=[repo(languages={f'L{i}':i for i in range(1,9)})])
+        m=data.metrics(s)
+        self.assertEqual(m['languages'][-1],('Other',3))
+        self.assertEqual(sum(v for _,v in m['languages']),m['language_total'])
+
+    def test_missing_future_and_negative_data_are_rejected(self):
+        for change in ['missing','future','negative']:
+            with self.subTest(change=change):
+                s=snapshot()
+                if change=='missing':del s['contributions']['2024-01-02']
+                elif change=='future':s['contributions']['2024-01-05']=1
+                else:s['contributions']['2024-01-02']=-1
+                with self.assertRaises(ValueError):data.validate(s)
+
+
+class CalendarTests(unittest.TestCase):
+    def test_full_leap_calendar_and_comma_counts(self):
+        days=data.parse_calendar(calendar_html(2024),2024)
+        self.assertEqual(len(days),366)
+        self.assertEqual(days['2024-01-01'],1234)
+        self.assertEqual(days['2024-01-02'],1)
+        self.assertEqual(days['2024-02-29'],0)
+
+    def test_partial_calendar_rejected(self):
+        with self.assertRaises(ValueError):data.parse_calendar('',2024)
+
+    def test_missing_tooltip_is_not_zero(self):
+        html=calendar_html(2024).replace('for="d3"','for="missing"')
+        with self.assertRaises(ValueError):data.parse_calendar(html,2024)
+
+    def test_duplicate_dates_and_changed_markup_rejected(self):
+        for html in [calendar_html(2024).replace('2024-01-02','2024-01-01'),calendar_html(2024).replace('No contributions','Unknown')]:
+            with self.assertRaises(ValueError):data.parse_calendar(html,2024)
+
+
+class RefreshTests(unittest.TestCase):
+    def test_repository_and_language_pagination(self):
+        calls=[]
+        def api(query,v):
+            calls.append(v)
+            if query==updater.LANGUAGES:
+                return {'repository':{'isPrivate':False,'languages':{'edges':[{'size':30,'node':{'name':'HTML'}}],'pageInfo':{'hasNextPage':False,'endCursor':None}}}}
+            first=v['cursor'] is None
+            return {'user':{'createdAt':'2024-01-01T00:00:00Z','repositories':{'nodes':[api_node('one' if first else 'two',more_languages=first)],'pageInfo':{'hasNextPage':first,'endCursor':'repo1' if first else None}}}}
+        _,repos=updater.collect_repositories(api)
+        self.assertEqual(len(repos),2)
+        self.assertEqual(repos[0]['languages'],{'HTML':30,'Python':100})
+        self.assertEqual(len(calls),3)
+
+    def test_private_repo_rejected(self):
+        def api(q,v):
+            result=fake_api(q,v);result['user']['repositories']['nodes'][0]['isPrivate']=True;return result
+        with self.assertRaises(ValueError):updater.collect_repositories(api)
+
+    def test_looping_pagination_rejected(self):
+        def api(q,v):
+            result=fake_api(q,v);result['user']['repositories']['pageInfo']={'hasNextPage':True,'endCursor':'same'};return result
+        with self.assertRaises(ValueError):updater.collect_repositories(api)
+
+    def test_http_200_graphql_errors_rejected(self):
+        result=subprocess.CompletedProcess([],0,stdout=json.dumps({'data':{},'errors':[{'message':'No'}]}))
+        with patch.dict(os.environ,{},clear=True),patch.object(subprocess,'run',return_value=result):
+            with self.assertRaises(ValueError):updater.graphql('query {}',{})
+
+    def test_snapshot_atomicity_failure_and_unchanged_mtime(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'profile.json').write_text(json.dumps({'projects':[{'repository':'zindi-cli'}]}))
+            calendar_fetch=lambda year:data.parse_calendar(calendar_html(year),year)
+            args=dict(root=root,as_of=date(2024,1,4),api=fake_api,calendar_fetch=calendar_fetch)
+            self.assertTrue(updater.refresh(**args))
+            path=root/'data/github.json';old=path.read_bytes();mtime=path.stat().st_mtime_ns
+            self.assertFalse(updater.refresh(**args))
+            self.assertEqual(path.stat().st_mtime_ns,mtime)
+            args['calendar_fetch']=lambda year: (_ for _ in ()).throw(TimeoutError())
+            with self.assertRaises(TimeoutError):updater.refresh(**args)
+            self.assertEqual(path.read_bytes(),old)
+            self.assertFalse(path.with_suffix('.tmp').exists())
+
+    def test_missing_featured_repo_preserves_old_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'data').mkdir();path=root/'data/github.json';path.write_text('old')
+            (root/'profile.json').write_text(json.dumps({'projects':[{'repository':'missing'}]}))
+            with self.assertRaises(ValueError):updater.refresh(root,date(2024,1,4),fake_api,lambda y:data.parse_calendar(calendar_html(y),y))
+            self.assertEqual(path.read_text(),'old')
+
+
+class RenderTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.generated=build.outputs()
+
+    def test_deterministic_and_asset_references(self):
+        self.assertEqual(self.generated,build.outputs())
+        readme=self.generated[build.ROOT/'README.md']
+        for name in re.findall(r'(?:src|srcset)="(assets/[^"]+)"',readme):self.assertIn(build.ROOT/name,self.generated)
+        self.assertNotIn('YM-01',readme)
+        self.assertNotIn('Selected systems',readme)
+
+    def test_valid_self_contained_svg_and_size(self):
+        for path,svg in self.generated.items():
+            if path.suffix!='.svg':continue
+            with self.subTest(path=path.name):
+                ET.fromstring(svg)
+                self.assertNotRegex(svg,r'<(?:script|foreignObject|image)\b')
+                self.assertNotIn('https://',svg)
+                if 'static' in path.name:self.assertNotIn('@keyframes',svg)
+                if '@keyframes' in svg:self.assertIn('prefers-reduced-motion',svg)
+        for theme in ['dark','light']:
+            total=sum(len(v.encode()) for p,v in self.generated.items() if f'-{theme}' in p.name and '-compact' not in p.name and 'static' not in p.name)
+            self.assertLess(total,300_000)
+
+    def test_calendar_encodes_exactly_365_real_dates(self):
+        snapshot=json.loads((build.ROOT/'data/github.json').read_text())
+        expected=dict(data.metrics(snapshot)['recent'])
+        for name in ['hero-dark.svg','hero-light-compact.svg']:
+            svg=self.generated[build.ROOT/'assets'/name]
+            actual=dict((d,int(n)) for d,n in re.findall(r'data-date="([^"]+)" data-count="(\d+)"',svg))
+            self.assertEqual(actual,expected)
+
+    def test_untrusted_text_is_escaped(self):
+        d=art.Drawing(200,100,'dark','<script>','& test')
+        d.text(10,30,'<img onerror="bad">')
+        self.assertNotIn('<img',d.finish())
+        self.assertIn('&lt;img',d.finish())
+        self.assertIn(r'\[click\]',build.md_text('[click](javascript:alert(1))'))
+
+    def test_check_never_writes_or_deletes(self):
         with tempfile.TemporaryDirectory() as folder:
-            root = Path(folder)
-            (root / "profile.json").write_text(json.dumps({"activity_repositories": [REPO]}))
-            self.assertTrue(update_activity.refresh(root, fake_fetch))
-            path = root / "data/activity.json"
-            old, mtime = path.read_bytes(), path.stat().st_mtime_ns
-            self.assertFalse(update_activity.refresh(root, fake_fetch))
-            self.assertEqual(path.stat().st_mtime_ns, mtime)
-            def unavailable(_):
-                raise HTTPError("https://api.github.com", 403, "rate limited", {}, None)
-            with self.assertRaises(HTTPError):
-                update_activity.refresh(root, unavailable)
-            self.assertEqual(path.read_bytes(), old)
-            self.assertFalse(path.with_suffix(".tmp").exists())
+            root=Path(folder);(root/'assets').mkdir();old=root/'assets/old.svg';old.write_text('old')
+            with patch.object(build,'outputs',return_value={root/'README.md':'new'}):
+                with self.assertRaises(SystemExit):build.build(True,root)
+                self.assertEqual(old.read_text(),'old');self.assertFalse((root/'README.md').exists())
 
-    def test_second_repository_failure_does_not_publish_partial_snapshot(self):
-        with tempfile.TemporaryDirectory() as folder:
-            root = Path(folder)
-            (root / "data").mkdir()
-            (root / "data/activity.json").write_text('{"entries": []}\n')
-            (root / "profile.json").write_text(json.dumps({"activity_repositories": [REPO, "JONNY-ME/multilingual-health-qa"]}))
-            def fetch(path):
-                if "multilingual" in path:
-                    raise TimeoutError("network timeout")
-                return fake_fetch(path)
-            with self.assertRaises(TimeoutError):
-                update_activity.refresh(root, fetch)
-            self.assertEqual((root / "data/activity.json").read_text(), '{"entries": []}\n')
+    def test_invalid_destinations(self):
+        for url in ['javascript:alert(1)','https://','https://a\nb','https://user:pass@example.org']:
+            with self.assertRaises(ValueError):build.safe_url(url)
 
 
-class RenderingTests(unittest.TestCase):
-    def test_assets_are_self_contained_valid_svg_and_within_budget(self):
-        for name, svg in art.assets().items():
-            with self.subTest(name=name):
-                root = ET.fromstring(svg)
-                self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
-                if "@keyframes" in svg:
-                    self.assertIn("prefers-reduced-motion", svg)
-                if "static" in name:
-                    self.assertNotIn("@keyframes", svg)
-                for node in root.iter():
-                    self.assertNotIn(node.tag.split("}")[-1], {"script", "foreignObject", "image"})
-                    self.assertFalse(any(key.startswith("on") for key in node.attrib))
-        for theme in ["dark", "light"]:
-            total = sum(len(value.encode()) for name, value in art.assets().items() if f"-{theme}" in name)
-            self.assertLess(total, 300_000)
-
-    def test_generation_is_deterministic_and_all_referenced_assets_exist(self):
-        first, second = build.outputs(), build.outputs()
-        self.assertEqual(first, second)
-        readme = first[build.ROOT / "README.md"]
-        import re
-        for name in re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme):
-            self.assertIn(build.ROOT / name, first)
-        self.assertIn("#01--selected-systems", readme)
-        self.assertEqual(readme.count("<!-- activity:start -->"), 1)
-        self.assertEqual(readme.count("<!-- activity:end -->"), 1)
-        self.assertLess(readme.index('srcset="assets/hero-static-dark-compact.svg"'), readme.index('srcset="assets/hero-dark-compact.svg"'))
-
-    def test_check_does_not_write_missing_or_stale_outputs(self):
-        with tempfile.TemporaryDirectory() as folder:
-            root = Path(folder)
-            path = root / "README.md"
-            with patch.object(build, "outputs", return_value={path: "new"}):
-                with self.assertRaises(SystemExit):
-                    build.build(check=True, root=root)
-                self.assertFalse(path.exists())
-                path.write_text("old")
-                with self.assertRaises(SystemExit):
-                    build.build(check=True, root=root)
-                self.assertEqual(path.read_text(), "old")
-
-    def test_section_markers_are_decorative_and_precede_each_heading(self):
-        readme = build.outputs()[build.ROOT / "README.md"]
-        for n in range(1, 6):
-            marker = readme.index(f'srcset="assets/marker-{n}-dark.svg"')
-            heading = readme.index(f"## 0{n} / ")
-            self.assertLess(marker, heading)
-            self.assertNotIn("## 0", readme[marker:heading])
-        self.assertEqual(readme.count('alt=""'), 5)
-
-
-class InstrumentTests(unittest.TestCase):
-    """The artwork's claims are checked: the waveform really encodes the name, the vote is a majority."""
-
-    def test_uart_waveform_decodes_to_name(self):
-        bits = instrument.uart_bits(art.NAME)
-        decoded = ""
-        for start in range(0, len(bits), 10):
-            frame = bits[start:start + 10]
-            self.assertEqual((frame[0], frame[9]), (0, 1), "8N1 start and stop bits")
-            decoded += chr(sum(bit << i for i, bit in enumerate(frame[1:9])))
-        self.assertEqual(decoded, "YOHANNES")
-        for theme in instrument.PALETTES:
-            hero = art.hero(theme)
-            for char in art.NAME:
-                self.assertIn(f"0x{ord(char):02X}", hero)
-            self.assertIn(f"{len(bits) / art.BAUD * 1000:.2f} ms", hero)
-
-    def test_vote_lane_is_the_majority_of_three_models(self):
-        for lanes in art.FPGA_CYCLES:
-            self.assertEqual(len(lanes), 3)
-            vote, agree = art.majority(list(lanes))
-            self.assertGreaterEqual(agree, 2, "every illustrated cycle must have a 2-of-3 majority")
-            self.assertEqual(sum(value == vote for value in lanes), agree)
-        self.assertTrue(any(art.majority(list(lanes))[1] == 2 for lanes in art.FPGA_CYCLES))
-
-    def test_cli_session_matches_the_zindi_cli_exit_code_contract(self):
-        exit_codes = {"API_ERROR": 1, "RATE_LIMITED": 1, "USAGE": 2, "NO_CHALLENGE": 2, "VALIDATION": 2,
-                      "AUTH_REQUIRED": 3, "AUTH_EXPIRED": 3, "NOT_FOUND": 4, "ENDPOINT_UNSUPPORTED": 4, "NETWORK": 5}
-        for entry in art.CLI_SESSION:
-            self.assertTrue(entry["command"].startswith("zindi "))
-            if entry["exit"] == 0:
-                self.assertEqual(entry["stream"], "stdout")
-                self.assertTrue(entry["output"].startswith('{"ok": true'))
-            else:
-                self.assertEqual(entry["stream"], "stderr")
-                code = entry["output"].split('"code": "')[1].split('"')[0]
-                self.assertEqual(exit_codes[code], entry["exit"])
-
-    def test_palette_contrast(self):
-        for theme, palette in instrument.PALETTES.items():
-            for surface in instrument.SURFACES:
-                for color in instrument.TEXT_COLORS:
-                    with self.subTest(theme=theme, surface=surface, color=color):
-                        self.assertGreaterEqual(instrument.contrast(palette[color], palette[surface]), 4.5)
-            for flag in ["ch0", "ch1", "ch2", "ch3"]:
-                with self.subTest(theme=theme, flag=flag):
-                    self.assertGreaterEqual(instrument.contrast(palette["screen"], palette[flag]), 4.5)
-            page = "#0D1117" if theme == "dark" else "#FFFFFF"
-            for trace in ["ch0", "ch1", "ch2", "ch3"]:
-                with self.subTest(theme=theme, page=page, trace=trace):
-                    self.assertGreaterEqual(instrument.contrast(palette[trace], page), 3)
-
-    def test_motion_runs_once_and_settles_quickly(self):
-        self.assertLessEqual(art.MOTION_END, 5)
-        for name, svg in art.assets().items():
-            with self.subTest(name=name):
-                self.assertNotIn("infinite", svg)
-                if name.startswith("hero-") and "static" not in name:
-                    self.assertIn('class="shutter"', svg)
-                else:
-                    self.assertNotIn("class=", svg)
-
-    def test_unsafe_links_rejected(self):
-        for value in ["javascript:alert(1)", "https://", "https://foo\nbar", 'https://foo/"bad']:
-            with self.subTest(value=value), self.assertRaises(ValueError):
-                build.safe_url(value)
-
-
-if __name__ == "__main__":
-    unittest.main()
+if __name__=='__main__':unittest.main()

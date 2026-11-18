@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/simple-icons/simple-icons",
+  "commit": "17cd4ee07612198a1d8777a060d4100423762a8b",
+  "icons": [
+    "python",
+    "pytorch",
+    "tensorflow",
+    "huggingface",
+    "opencv",
+    "fastapi",
+    "postgresql",
+    "docker",
+    "git",
+    "linux"
+  ]
+}
