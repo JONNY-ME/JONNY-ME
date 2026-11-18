@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="140" viewBox="0 0 840 140" role="img" aria-labelledby="title desc"><title id="title">GitHub activity</title><desc id="desc">Current streak 42 days; longest streak 61 days; 2999 contributions in the last 365 days; 74 stars; 33 public repositories.</desc>
+<style>text{font-family:Inter,Arial,Helvetica,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}</style>
+<rect x="0" y="0" width="840" height="140" rx="18" fill="#101820" />
+<text x="28" y="34" font-size="13" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Current streak</text>
+<text x="28" y="85" font-size="44" fill="#D99A63" font-weight="600" text-anchor="start" letter-spacing="0">42</text>
+<text x="206" y="34" font-size="13" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Longest streak</text>
+<text x="206" y="85" font-size="44" fill="#F4EFE6" font-weight="600" text-anchor="start" letter-spacing="0">61</text>
+<text x="384" y="34" font-size="13" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Contributions</text>
+<text x="384" y="85" font-size="44" fill="#75C4BC" font-weight="600" text-anchor="start" letter-spacing="0">2,999</text>
+<text x="584" y="34" font-size="13" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Stars received</text>
+<text x="584" y="85" font-size="44" fill="#F4EFE6" font-weight="600" text-anchor="start" letter-spacing="0">74</text>
+<text x="722" y="34" font-size="13" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Public repos</text>
+<text x="722" y="85" font-size="44" fill="#F4EFE6" font-weight="600" text-anchor="start" letter-spacing="0">33</text>
+<text x="28" y="112" font-size="11" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">days</text>
+<text x="206" y="112" font-size="11" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">days · all time</text>
+<text x="384" y="112" font-size="11" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">last 365 days</text>
+<path d="M184 26 V115" stroke="#30434F" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M362 26 V115" stroke="#30434F" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M562 26 V115" stroke="#30434F" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M700 26 V115" stroke="#30434F" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<g transform="translate(134 51) scale(0.8)">
+<path d="M14 0 C16 10 4 13 5 23 C-5 11 0 35 14 35 C30 35 34 17 24 10 C25 22 15 20 14 0 Z" stroke="#D99A63" stroke-width="1" fill="#D99A63" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M14 18 C16 25 9 27 13 32 C22 32 22 24 19 22 C19 28 14 26 14 18 Z" stroke="#101820" stroke-width="1" fill="#101820" stroke-linecap="round" stroke-linejoin="round" />
+</g>
+</svg>

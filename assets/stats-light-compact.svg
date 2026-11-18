@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="290" viewBox="0 0 360 290" role="img" aria-labelledby="title desc"><title id="title">GitHub activity</title><desc id="desc">Current streak 42 days; longest streak 61 days; 2999 contributions in the last 365 days; 74 stars; 33 public repositories.</desc>
+<style>text{font-family:Inter,Arial,Helvetica,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}</style>
+<rect x="0" y="0" width="360" height="290" rx="18" fill="#F4EFE6" />
+<path d="M24 103 H336 M24 195 H336" stroke="#C9C8BD" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="24" y="35" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">Current streak</text>
+<text x="24" y="78" font-size="39" fill="#8D4C27" font-weight="600" text-anchor="start" letter-spacing="0">42</text>
+<text x="196" y="35" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">Longest streak</text>
+<text x="196" y="78" font-size="39" fill="#182A33" font-weight="600" text-anchor="start" letter-spacing="0">61</text>
+<text x="24" y="127" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">Contributions · last 365 days</text>
+<text x="24" y="170" font-size="39" fill="#236B66" font-weight="600" text-anchor="start" letter-spacing="0">2,999</text>
+<text x="24" y="219" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">Stars received</text>
+<text x="24" y="262" font-size="39" fill="#182A33" font-weight="600" text-anchor="start" letter-spacing="0">74</text>
+<text x="196" y="219" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">Public repos</text>
+<text x="196" y="262" font-size="39" fill="#182A33" font-weight="600" text-anchor="start" letter-spacing="0">33</text>
+<g transform="translate(310 119) scale(0.7)">
+<path d="M14 0 C16 10 4 13 5 23 C-5 11 0 35 14 35 C30 35 34 17 24 10 C25 22 15 20 14 0 Z" stroke="#8D4C27" stroke-width="1" fill="#8D4C27" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M14 18 C16 25 9 27 13 32 C22 32 22 24 19 22 C19 28 14 26 14 18 Z" stroke="#F4EFE6" stroke-width="1" fill="#F4EFE6" stroke-linecap="round" stroke-linejoin="round" />
+</g>
+</svg>

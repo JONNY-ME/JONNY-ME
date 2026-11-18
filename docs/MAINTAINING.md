@@ -1,10 +1,8 @@
-# Maintaining the YM-01 Bench
+# Maintaining Jonny's profile
 
-This repository is Yohannes Melese's GitHub profile. Its artwork is generated locally, and the rendered README has no external widget or font dependencies.
+The README and SVGs are generated from curated profile content and a complete, dated GitHub snapshot. Python 3.12+ is sufficient for offline generation; no packages or image services are required.
 
 ## Edit and build
-
-Python 3.12 or newer is sufficient; no packages need to be installed.
 
 ```sh
 python3 scripts/build.py
@@ -12,33 +10,42 @@ python3 -m unittest discover -s tests -v
 python3 scripts/build.py --check
 ```
 
-Edit `profile.json` for identity, project descriptions, credentials, destinations, and the public repository allowlist. Edit `templates/README.md.tmpl` for section structure. Edit `scripts/instrument.py` for the palette and the instrument's drawing primitives (UART encoding, traces, buses, graticule), and `scripts/art.py` for the captures, section markers, and hero motion. Commit the generated README and SVGs together with source changes. The builder is deterministic and works offline from the committed activity snapshot; `--check` never rewrites files.
+Edit `profile.json` for identity, selected repositories, tool labels, and contact links. Edit the template for structure and `scripts/art.py` for vector artwork. Commit source and generated output together. The builder removes obsolete generated SVGs at the root of `assets/`; vendored icons under `assets/icons/` are preserved. `--check` never writes or deletes files.
 
-The content was curated from Yohannes's portfolio. This repository has no dependency on that site's source checkout. See [content provenance and design decisions](DESIGN.md) when updating claims or project status.
-
-## Refresh the workbench
+## Refresh public GitHub data
 
 ```sh
 python3 scripts/update_activity.py
 python3 scripts/build.py
 ```
 
-The updater requests public repository metadata and the latest default-branch commit for each explicitly configured repository. It stores only the repository name, SHA, commit date, and first line of the commit message. `GITHUB_TOKEN` is optional locally and is supplied automatically by Actions; do not put a token in a file or commit it.
+Locally, the updater uses the authenticated `gh` CLI for public repository metadata, unless `GITHUB_TOKEN` is supplied. It never reads or prints the CLI's token. In Actions it uses the built-in token. `--dry-run` fetches and validates without writing; `--as-of YYYY-MM-DD` can freeze a UTC reporting date for reproducibility.
 
-The workflow runs daily at 09:17 Africa/Addis_Ababa (06:17 UTC) after it reaches `main`. GitHub schedules may be delayed. You can also run **Actions → Refresh public workbench → Run workflow** against `main`. Refreshing a feature branch is deliberately disabled.
+Repository metadata comes from GitHub GraphQL, explicitly filtered to public repositories owned by JONNY-ME. Repository and language connections are fully paginated. No private repository names, descriptions, code, or commit messages are requested or saved.
 
-An API error, private repository, or malformed response fails the whole refresh before replacing the snapshot. The existing profile remains visible. A genuinely empty public repository is omitted. Identical results do not write files or create commits. Remote titles are escaped before entering Markdown. The published log records commit dates, not an artificial "last active" status.
+Contribution counts come from the **unauthenticated public GitHub contribution calendar**, one calendar year at a time, starting with the account's creation year. This deliberately uses the same visibility as a signed-out visitor. Anonymous counts from private work appear only when GitHub already displays them publicly. The parser joins dated calendar cells to their count tooltips and requires every day of each year, including leap days. Missing counts, changed markup, incomplete responses, and HTTP/GraphQL errors fail the refresh; they never turn missing data into zero activity.
 
-The publishing job alone has `contents: write`. It commits only the README and activity snapshot. There is no force push; if a concurrent change prevents the push, rerun the workflow. If branch protection disallows bot commits, keep the protection and use the local refresh commands on a pull request instead.
+The full snapshot is validated before its atomic replacement. If a featured repository is absent or no longer public, the refresh fails for review rather than publishing a broken card. The previous published README and images remain available on every failure. Identical same-date snapshots leave the file unchanged.
 
-GitHub [disables scheduled workflows after 60 days of repository inactivity](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). Re-enable the workflow in Actions if that occurs. There are no artificial keep-alive commits. Check the Actions run history for refresh failures.
+## Metric definitions
 
-## Visual review and publication
+- **Current streak:** consecutive calendar days with a positive contribution count ending today or yesterday. No weekend exclusions. The reporting date is UTC, and the dated calendar cells are used as GitHub publishes them.
+- **Longest streak:** the longest consecutive run across all available years, including year boundaries. This is not restricted to the visible calendar.
+- **Contributions:** the sum from reporting date minus 364 days through reporting date, inclusive.
+- **Stars received:** sum of stars on owned public repositories, excluding forks.
+- **Public repos:** all owned public repositories, including forks.
+- **Languages:** GitHub-reported bytes in owned public repositories, excluding forks and this profile repository. Show the top six and combine the rest into Other. Notebook bytes remain Jupyter Notebook; this is repository composition, not an estimate of language proficiency.
 
-Inspect the README on its GitHub branch in both light and dark themes, at desktop and mobile widths. Confirm the browser selects compact artwork below 600px. Reduced motion should show the complete static hero. The hero's sweep runs once; project captures and section markers stay still. Check image-free readability, anchor links, and every public destination.
+`data/github.json` contains only the snapshot date, account creation date, public daily counts, and necessary public repository/language metadata. It is the single source for the README, graphs, cards, and accessible text.
 
-Changes to `main` are displayed on the GitHub profile. Review through a pull request first. Reverting the merge restores the prior README and artwork. Preview screenshots in this repository document the initial review; regenerate them when changing the visual design.
+## Automation and publication
 
-## Checks
+The refresh runs at **09:17 Africa/Addis_Ababa (06:17 UTC)** daily and can be triggered from **Actions → Refresh Jonny GitHub profile → Run workflow** on `main`. A reporting-date change is meaningful even when activity does not change: streak grace and the 365-day window must advance. Generated commits use `github-actions[bot]`, not the profile owner's identity.
 
-The tests cover generation integrity, complete asset references, SVG validity and size, the artwork's factual claims (the UART waveform decodes to the name, every vote is a majority, CLI exit codes match zindi-cli's contract), palette contrast, single-run motion, remote-content escaping, URL rejection, empty/private repositories, failed/partial refreshes, and no-change updates. They use fake API responses and never require a token. CI also checks that committed output matches the source.
+Only the publishing job has `contents: write`; it commits the snapshot, README, and generated SVGs together. There are no force pushes. A concurrent main-branch change may cause a safe push failure; rerun the workflow. If branch protection prohibits bot writes, retain the protection and refresh through a normal pull request.
+
+CI checks offline generation and unit tests. On source pushes, a separate read-only job also exercises the public fetch with the Actions token, without publishing or changing files. A failed live check reports a source/API problem; the offline checks remain separately visible.
+
+GitHub may delay schedules and [disable them after 60 days of repository inactivity](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). Re-enable in Actions if needed; inspect run history for failures. The contribution parser intentionally fails closed when GitHub changes its HTML markup, so update it and its fixtures if required.
+
+Review a branch's actual GitHub README in both themes and on narrow screens before merging. Merge to `main` publishes the profile. Reverting the merge restores the earlier version. See [rendered previews and validation](VALIDATION.md).

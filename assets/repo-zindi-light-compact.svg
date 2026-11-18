@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="172" viewBox="0 0 360 172" role="img" aria-labelledby="title desc"><title id="title">Zindi CLI</title><desc id="desc">From datasets to submissions. A competition workflow you can script. 0 stars. Python.</desc>
+<style>text{font-family:Inter,Arial,Helvetica,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}</style>
+<rect x="0" y="0" width="360" height="172" rx="18" fill="#F4EFE6" />
+<rect x="0" y="0" width="4" height="172" rx="0" fill="#8D4C27" />
+<text x="22" y="30" font-size="20" fill="#182A33" font-weight="600" text-anchor="start" letter-spacing="0">Zindi CLI</text>
+<path d="M328 20 h10 v10 M328 30 l10 -10" stroke="#8D4C27" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="22" y="59" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">From datasets to submissions. A</text>
+<text x="22" y="81" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">competition workflow you can</text>
+<text x="22" y="103" font-size="17" fill="#52636B" font-weight="400" text-anchor="start" letter-spacing="0">script.</text>
+<text x="22" y="150" font-size="14" fill="#8D4C27" font-weight="400" text-anchor="start" letter-spacing="0">Python · Developer tools</text>
+<text x="340" y="150" font-size="14" fill="#52636B" font-weight="400" text-anchor="end" letter-spacing="0">0 stars</text>
+</svg>

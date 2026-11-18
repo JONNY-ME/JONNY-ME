@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="172" viewBox="0 0 360 172" role="img" aria-labelledby="title desc"><title id="title">Multilingual health QA</title><desc id="desc">Adapting language models for health questions in African languages. 0 stars. Jupyter Notebook.</desc>
+<style>text{font-family:Inter,Arial,Helvetica,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}</style>
+<rect x="0" y="0" width="360" height="172" rx="18" fill="#101820" />
+<rect x="0" y="0" width="4" height="172" rx="0" fill="#75C4BC" />
+<text x="22" y="30" font-size="20" fill="#F4EFE6" font-weight="600" text-anchor="start" letter-spacing="0">Multilingual health QA</text>
+<path d="M328 20 h10 v10 M328 30 l10 -10" stroke="#75C4BC" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="22" y="59" font-size="17" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">Adapting language models for health</text>
+<text x="22" y="81" font-size="17" fill="#A6B6BF" font-weight="400" text-anchor="start" letter-spacing="0">questions in African languages.</text>
+<text x="22" y="150" font-size="14" fill="#75C4BC" font-weight="400" text-anchor="start" letter-spacing="0">LLMs · Research</text>
+<text x="340" y="150" font-size="14" fill="#A6B6BF" font-weight="400" text-anchor="end" letter-spacing="0">0 stars</text>
+</svg>
