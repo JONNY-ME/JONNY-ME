@@ -9,7 +9,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/hero-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-static-light.svg" width="840" alt="Jonny — Yohannes Melese. AI, software, electronics. 3,066 contributions in the last 365 days, updated 2026-11-26.">
+  <img src="assets/hero-static-light.svg" width="840" alt="Jonny — Yohannes Melese. AI, software, electronics. 3,085 contributions in the last 365 days, updated 2026-11-27.">
 </picture>
 
 I'm Yohannes Melese — Jonny here. I build machine learning systems, useful Python tools, and occasionally the hardware underneath. Based in Addis Ababa.
@@ -21,7 +21,7 @@ I'm Yohannes Melese — Jonny here. I build machine learning systems, useful Pyt
   <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/stats-light-compact.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-  <img src="assets/stats-light.svg" width="840" alt="Current streak: 50 days. Longest streak: 61 days. Contributions in the last 365 days: 3,066. Stars received: 74. Public repositories: 33.">
+  <img src="assets/stats-light.svg" width="840" alt="Current streak: 51 days. Longest streak: 61 days. Contributions in the last 365 days: 3,085. Stars received: 74. Public repositories: 33.">
 </picture>
 
 ### Tools I work with
@@ -99,7 +99,7 @@ Before these projects, I worked on Python development and training data at Turin
 <details>
 <summary>GitHub numbers, in plain text</summary>
 
-As of **2026-11-26**: **50 days** current streak; **61 days** longest streak; **3,066** contributions in the last 365 days; **74** stars received; **33** public repositories.
+As of **2026-11-27**: **51 days** current streak; **61 days** longest streak; **3,085** contributions in the last 365 days; **74** stars received; **33** public repositories.
 
 Contribution counts match the publicly visible GitHub calendar, including anonymous counts already shared there. Streaks use consecutive contribution days; today can remain unfinished. Stars exclude forks. Languages describe repository bytes, with notebooks kept as their own category. [Data definitions and build instructions](docs/MAINTAINING.md).
 
